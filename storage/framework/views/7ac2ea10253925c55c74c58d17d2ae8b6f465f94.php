@@ -41,8 +41,9 @@
       
       <div class="book-agileinfo-form">
   <form class="login100-form validate-form" method="POST" action="<?php echo e(route('orders.update', $id)); ?>">
-       <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
-        
+       
+        <?php echo e(csrf_field()); ?>
+
         <input name="_method" type="hidden" value="PATCH">
            <h2 class="sub-head-w3ls">Modificación de pedidos</h2>
 
@@ -107,8 +108,8 @@
 
             <div class="agileits-btm-spc form-text2">
                <br>
-                <p style="width:100%; color: #a0a0a0; font-size: 16px; letter-spacing: 1.5px; padding: 10px 10px; outline: none; background: rgba(255, 255, 255, 0); border: none; box-sizing: border-box; font-family: 'Roboto', sans-serif;">¿Algún comentario extra? </p>
-            <textarea rows="4" cols="60" name="Comentario" placeholder="<?php echo e($orders->Comentario); ?>" value="<?php echo e($orders->Comentario); ?>" style="width: 95%; height: 150px; padding: 12px 20px; box-sizing: border-box; border: 2px solid #ccc; border-radius: 4px; background-color: #f8f8f8; font-size: 16px; resize: none;"></textarea>
+                <p style="width:100%; color: #a0a0a0; font-size: 16px; letter-spacing: 1.5px; padding: 10px 10px; outline: none; background: rgba(255, 255, 255, 0); border: none; box-sizing: border-box; font-family: 'Roboto', sans-serif;">¿Modificar comentario?</p>
+            <input type="text" rows="4" cols="60" name="Comentario" placeholder="<?php echo e($orders->Comentario); ?>" value="<?php echo e($orders->Comentario); ?>" style="width: 95%; height: 150px; padding: 12px 20px; box-sizing: border-box; border: 2px solid #ccc; border-radius: 4px; background-color: #f8f8f8; font-size: 16px; resize: none;">
           
           </div>
 
@@ -178,7 +179,6 @@
           
    
          <div class="clear"></div>
-         
           <input type="submit" name="submit" value="actualizar">
            <div style="text-align:right"><a href="<?php echo e(route('orders.index')); ?>" style="text-decoration: none; color: white"><img src="<?php echo e(URL::asset("/images/back.png")); ?>" style="top: 720px; left: 670px; height: 27px; width: 27px; border:none;">Atrás</a></div>
 

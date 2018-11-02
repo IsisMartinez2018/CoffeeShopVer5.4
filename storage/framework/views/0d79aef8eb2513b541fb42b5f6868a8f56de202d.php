@@ -138,6 +138,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- //header -->
 	<!-- banner -->
 	<div class="banner">
+		<?php if( Session::has( 'alert' )): ?>
+    <div class="alert alert-success">
+     <?php echo e(Session::get( 'alert' )); ?>
+
+     </div>
+     <?php endif; ?>
 		<div id="carouselExampleControls" class="carousel kb_elastic animate_text kb_wrapper" data-ride="carousel" data-interval="6000"
 		    data-pause="hover">
 			<!-- Wrapper-for-Slides -->

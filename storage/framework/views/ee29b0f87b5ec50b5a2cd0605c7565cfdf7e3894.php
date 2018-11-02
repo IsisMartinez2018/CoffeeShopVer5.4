@@ -47,9 +47,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			
 			<div class="book-agileinfo-form">
 				 <form action="<?php echo e(route('orders.store')); ?>" method="POST">
-					
+					<?php if($errors->any()): ?>
+    
+            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <li style="color: #ec24b6;"><?php echo e($error); ?><hr></li>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+  
+<?php endif; ?>
+
 					<h2 class="sub-head-w3ls">Formulario de pedidos<img src="<?php echo e(URL::asset("/images/food-and-restaurant.png")); ?>" style="top: 130px; left: 650px;height: 40px; width: 40px; border:none;"></h2>
 					<div class="main-agile-sectns">
+
 						<div class="agileits-btm-spc form-text1">
         					<i class="fa fa-envelope" aria-hidden="true"></i>
         					<input type="text" name="Nombre" class="Nombre" required="required" placeholder="Nombre">
