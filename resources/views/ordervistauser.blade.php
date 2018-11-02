@@ -46,18 +46,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="book-appointment">
 			
 			<div class="book-agileinfo-form">
-				 <form action="{{route('orders.store')}}" method="POST">
-					@if ($errors->any())
-    
-            @foreach ($errors->all() as $error)
-                <li style="color: #ec24b6;">{{ $error }}<hr></li>
-            @endforeach
-  
-@endif
+				 <form action="{{url('store')}}" method="POST">
+					
+					<h2 class="sub-head-w3ls">Formulario de pedidos
+						@if ($errors->any())
 
-					<h2 class="sub-head-w3ls">Formulario de pedidos<img src="{{ URL::asset("/images/food-and-restaurant.png") }}" style="top: 130px; left: 650px;height: 40px; width: 40px; border:none;"></h2>
+						@foreach($errors->all() as $error)
+						<p>{{$error}}</p>
+
+						@endforeach
+
+						@endif
+
+
+						<img src="{{ URL::asset("/images/food-and-restaurant.png") }}" style="top: 130px; left: 650px;height: 40px; width: 40px; border:none;"></h2>
 					<div class="main-agile-sectns">
-
 						<div class="agileits-btm-spc form-text1">
         					<i class="fa fa-envelope" aria-hidden="true"></i>
         					<input type="text" name="Nombre" class="Nombre" required="required" placeholder="Nombre">

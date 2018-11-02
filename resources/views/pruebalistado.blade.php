@@ -22,7 +22,12 @@
             window.scrollTo(0, 1);
         }
     </script>
-    <!-- //Meta-Tags -->
+   <!-- Default-JavaScript-File -->
+     <script src="js/jquery-2.2.3.min.js"></script>
+    <!-- Default-JavaScript-File -->
+    <script src="js/bootstrap.js"></script>
+  
+   <link rel="stylesheet" href="css/bootstrap(2).css">
     <!-- Index-Page-CSS -->
     <link rel="stylesheet" href="css/style4.css" type="text/css" media="all">
     <!-- onlinefonts -->
@@ -33,8 +38,22 @@
 <body>
     <header>
         <h1 class="title-agile text-center">Listado de pedidos & Modificación</h1>
-    </header>
+    @if( Session::has( 'alert' ))
+    <div class="alert alert-success" style="width: 1250px; margin-left: 50px; margin-top: -20px;">
+     {{ Session::get( 'alert' ) }}
+     </div>
+     @endif
+
+   </header>
     <!-- //header -->
+    
+
+ 
+
+<div class="banner">
+  
+
+
     <div style="background-image:url({{url('images/banner.jpg')}}); width: 1250px; height: 500px; margin-left: 50px;">
         <div class="main_w3agile" style=" width: 1250px; height: 500px; padding: .3em;">
             
@@ -96,12 +115,42 @@
 
               <a href="{{action('ordersController@edit', $orders->id)}}"> <p style="margin-right: -1px">Editar</p> <img src="{{ URL::asset("/images/editorial-design.png") }}" style="top: 230px; left: 810px; height: 25px; width: 25px; border:none;"></a></td>
                 <td >
-                  <form action="{{action('ordersController@destroy', $orders->id)}}" style="margin-right: -1px" method="post">
-                    {{csrf_field()}}
-                   <input name="_method" type="hidden" value="DELETE">
-                  
-                   <button style="border:none; background-color: transparent;" type="submit">Eliminar <img src="{{ URL::asset("/images/delete.png") }}" style="top: 230px; left: 810px; height: 25px; width: 25px; border:none; cursor:pointer;"></button>
-                 </form></td>
+                  <button style="border:none; background-color: transparent;" data-toggle="modal" data-target="#{{$orders->id}}">Eliminar <img src="{{ URL::asset("/images/delete.png") }}" style="top: 230px; left: 810px; height: 25px; width: 25px; border:none; cursor:pointer;">
+                   </button>
+                 
+                 <div class="modal modal-danger fade" id="{{$orders->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      </div>
+                      <form action="{{route('orders.destroy', $orders->id)}}" method="POST">{{ csrf_field()}}
+                        <div class="modal-body">
+                          <p class="text-center">¿Está seguro que desea eliminar este pedido?</p>
+                          <input type="hidden" name="_method" value="DELETE">
+                           </div>
+                        <div class="modal-footer">
+                          <button type="submit" class="p-3 mb-2 bg-primary text-white" style="border:solid 1px black; border-radius: 5px; width: 60px">
+                            Si
+                          </button>
+                          <button type="button" class="p-3 mb-2 bg-danger text-white" style="border:solid 1px black; border-radius: 5px; width: 60px" data-dismiss="modal">
+                            No
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+</td>
 
                  <td colspan="2" scope="colgroup"><a href="{{ route('orders.create') }}" ><p style="margin-right: 5px">Añadir</p> <img src="{{ URL::asset("/images/add.png") }}" style="top: 230px; left: 810px; height: 25px; width: 25px; border:none;"></a> </td>
                </tr>
