@@ -48,7 +48,7 @@ $this->validate($request,  [
 'Telefono' => 'required|integer',
 'Cantidad' => 'required|integer|min:1|max:10',
 'Fecha' => 'required|date|string|max:255|after:today',
-'Comentario' => 'string|max:100'
+'Comentario' => 'max:100'
 ]);
 
 
@@ -72,7 +72,7 @@ $user = new orders;
     $user->id_users = Input::get("id_users");
     
     $user->save();
-        return redirect()->to('/homevista')->with('success','Registro creado satisfactoriamente');
+        return redirect()->to('/homevista')->with('alert','Pedido creado satisfactoriamente');
     }
 
     /**
@@ -95,7 +95,7 @@ $user = new orders;
      */
     public function edit($id)
     {
-     $orders = \App\orders::find($id);
+     $orders = \App\Orders::find($id);
         return view('pruebalistadoedit',compact('orders', 'id'));  
     }
 
@@ -106,24 +106,22 @@ $user = new orders;
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function update(Request $request, $id)
     {
-       
- $this->validate($request,[ 'Nombre'=>'required', 'Apellido'=>'required', 'Email'=>'required', 'Telefono'=>'required','Cantidad'=>'required', 'Fecha'=>'required','Comentario'=>'required','Type_Coffee'=>'required','Size'=>'required','Extra'=>'required','Dulzor'=>'required']);
+      
+    $this->validate($request,['Nombre'=>'required|alpha|string|max:255', 'Apellido'=>'required|alpha|string|max:255', 'Email'=>'required|string|max:255|email', 'Telefono'=>'required|integer','Cantidad'=>'required|integer|min:1|max:10', 'Fecha'=>'required|date|string|max:255|after:today','Type_Coffee'=>'required','Size'=>'required','Extra'=>'required','Dulzor'=>'required']);
 
-        orders::find($id)->update($request->all());
-        return redirect()->route('orders.index')->with('success','Registro actualizado satisfactoriamente');
+        Orders::find($id)->update($request->all());
+        return redirect()->route('orders.index')->with('alert','Registro modificado satisfactoriamente');
  
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     }
+
+
     public function destroy($id)
     {
-       orders::find($id)->delete();
-        return redirect()->route('orders.index')->with('success','Registro eliminado satisfactoriamente');
+       $orders=orders::find($id);
+      $orders->delete();
+        return redirect()->route('orders.index')->with('alert','Registro eliminado satisfactoriamente');
     }
 }
