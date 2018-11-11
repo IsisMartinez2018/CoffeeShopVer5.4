@@ -19,7 +19,12 @@ class Users extends Model
         'password', 'remember_token',
     ];
 
+    public function profile(){
+        return $this->HasOne('App\profile', 'id', 'id_users');
+    }
     public function orders(){
         return $this->HasOne('App\orders', 'id', 'id_users');
     }
+
+     
 }
