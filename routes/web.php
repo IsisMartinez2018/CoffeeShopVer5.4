@@ -44,7 +44,6 @@ Route::get('/contactus', function () {
 });
 
 
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
@@ -58,5 +57,9 @@ Route::resource('orders', 'ordersController');
 
 });
 
+Route::group(['middleware'=>['auth']], function(){
+Route::resource('profile', 'profileController');
+
+});
 
 

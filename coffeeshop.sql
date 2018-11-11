@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-10-2018 a las 23:48:29
+-- Tiempo de generación: 11-11-2018 a las 19:39:44
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -45,7 +45,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `last_name`, `email`, `password`, `job_title`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Luna', 'Lovelace', 'luna@hotmail.com', '$2y$10$C8EGH0pUcqPGzINH7SMh5.MI/L3.azw86HZM60RR1eQQ5ozOdDXu6', 'administradora', 'HhIKN46icYOaZyvxIRi7gv9TYeZiN2O1lCDSIsNazx9qBFPUEPdhjHIaY8Qc', '2018-10-27 21:17:14', '2018-10-29 01:25:25');
+(1, 'Luna', 'Lovelace', 'luna@hotmail.com', '$2y$10$C8EGH0pUcqPGzINH7SMh5.MI/L3.azw86HZM60RR1eQQ5ozOdDXu6', 'administradora', 'mIWlvANSuDGA3wa1GRWTyx7PgRVJ2KAA0str8xh4VkzKzJTLiR7dQfIHUUdM', '2018-10-27 21:17:14', '2018-10-29 01:25:25');
 
 -- --------------------------------------------------------
 
@@ -65,7 +65,8 @@ CREATE TABLE `migrations` (
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2018_10_25_151819_create_orders_table', 1),
-(2, '2018_10_27_155538_create_admin_table', 2);
+(2, '2018_10_27_155538_create_admin_table', 2),
+(5, '2018_11_05_152017_create_profile_table', 3);
 
 -- --------------------------------------------------------
 
@@ -81,7 +82,7 @@ CREATE TABLE `orders` (
   `Telefono` int(11) NOT NULL,
   `Cantidad` int(11) NOT NULL,
   `Fecha` date NOT NULL,
-  `Comentario` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Comentario` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `Type_Coffee` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Size` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Extra` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -96,9 +97,10 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `Nombre`, `Apellido`, `Email`, `Telefono`, `Cantidad`, `Fecha`, `Comentario`, `Type_Coffee`, `Size`, `Extra`, `Dulzor`, `id_users`, `created_at`, `updated_at`) VALUES
-(2, 'Maria', 'Perezz', 'mariaperez@gmail.com', 2222222, 3, '2018-10-27', '24x7 Food service are available', 'Capuccino', 'S', 'Hielo', 'edulcorante', 3, '2018-10-25 20:58:45', '2018-10-25 20:58:45'),
+(2, 'Maria', 'Perezz', 'mariaperez@gmail.com', 2222222, 3, '2018-11-03', '24x7 Food service are available', 'Capuccino', 'S', 'Hielo', 'edulcorante', 3, '2018-10-25 20:58:45', '2018-11-02 20:11:48'),
 (3, 'Maria', 'Perezw', 'mariaperez@gmail.com', 6666666, 3, '2018-10-26', 'Online Food Order booking', 'Americano', 'M', 'Crema', 'azucar', 3, '2018-10-25 21:43:41', '2018-10-25 21:43:41'),
-(4, 'Peppa', 'Piggi', 'peppapiggy2028@gmail.com', 9999999, 9, '2018-10-28', 'Credit and debit card payment', 'Latte', 'M', 'Helado', 'edulcorante', 3, '2018-10-27 22:31:35', '2018-10-27 22:31:35');
+(4, 'Peppa', 'Piggi', 'peppapiggy2028@gmail.com', 9999999, 9, '2018-10-28', 'Credit and debit card payment', 'Latte', 'M', 'Helado', 'edulcorante', 3, '2018-10-27 22:31:35', '2018-10-27 22:31:35'),
+(5, 'Isis', 'Martinez', 'isisprueba@gmail.com', 8888888, 4, '2018-11-12', 'Credit and debit card payment', 'Capuccino', 'M', 'Crema', 'edulcorante', 4, '2018-11-11 05:26:52', '2018-11-11 05:26:52');
 
 -- --------------------------------------------------------
 
@@ -111,6 +113,35 @@ CREATE TABLE `password_resets` (
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `profile`
+--
+
+CREATE TABLE `profile` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `tlf` int(11) DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `direccion` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'default.png',
+  `facebook` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `twitter` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `google` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `instagram` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id_users` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `profile`
+--
+
+INSERT INTO `profile` (`id`, `tlf`, `email`, `direccion`, `avatar`, `facebook`, `twitter`, `google`, `instagram`, `id_users`, `created_at`, `updated_at`) VALUES
+(9, 8888888, 'isismartinez20@hotmail.com', 'Lorem ipsum dolor sit amet consectetur adipiscing elit class, senectus pellentesque parturient malesuada mi convallis auctor semper, egestas vel cras nec nisi varius ultrices.', '1541891590.jpg', 'isis_martinez', 'isistalk', 'isistalk', 'isistalk', 4, '2018-11-06 23:02:28', '2018-11-11 03:48:50'),
+(10, NULL, NULL, NULL, '1541889775.jpg', 'isis_martinez', 'isistalk', 'isistalk', 'isistalk', 4, '2018-11-11 03:12:55', '2018-11-11 03:12:55');
 
 -- --------------------------------------------------------
 
@@ -162,6 +193,13 @@ ALTER TABLE `orders`
   ADD KEY `orders_id_users_foreign` (`id_users`);
 
 --
+-- Indices de la tabla `profile`
+--
+ALTER TABLE `profile`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `profile_id_users_foreign` (`id_users`);
+
+--
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
@@ -181,13 +219,19 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `profile`
+--
+ALTER TABLE `profile`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
@@ -204,6 +248,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_id_users_foreign` FOREIGN KEY (`id_users`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Filtros para la tabla `profile`
+--
+ALTER TABLE `profile`
+  ADD CONSTRAINT `profile_id_users_foreign` FOREIGN KEY (`id_users`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
