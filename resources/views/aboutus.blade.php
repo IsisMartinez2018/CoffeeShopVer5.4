@@ -451,8 +451,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- JavaScript -->
 	<script src="{{ url('/js/jquery-2.2.3.min.js')}}"></script>
 	<!-- Default-JavaScript-File -->
-	<script src="{{ url('/js/bootstrap(2).js')}}"></script>
-	<!-- Necessary-JavaScript-File-For-Bootstrap -->
+	<script src="js/bootstrap.js"></script><!-- Necessary-JavaScript-File-For-Bootstrap -->
 
 	<!-- smooth scrolling -->
 	<script src="{{ url('/js/SmoothScroll.min.js')}}"></script>

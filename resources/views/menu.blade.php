@@ -77,7 +77,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="{{ url('/menu')}}">Menu</a>
-							<a class="dropdown-item" href="{{url('(home/#services')}}">Services</a>
+							<a class="dropdown-item" href="{{url('home/#services')}}">Services</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="{{ url('/aboutus')}}">Team</a>
 						</div>
@@ -332,8 +332,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- JavaScript -->
 	<script src="js/jquery-2.2.3.min.js"></script>
 	<!-- Default-JavaScript-File -->
-	<script src="js/bootstrap(2).js"></script>
-	<!-- Necessary-JavaScript-File-For-Bootstrap -->
+	<script src="js/bootstrap.js"></script><!-- Necessary-JavaScript-File-For-Bootstrap -->
 
 	<!-- flexSlider-for-menu-section -->
 	<script>

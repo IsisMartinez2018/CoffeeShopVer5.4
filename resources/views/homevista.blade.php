@@ -106,7 +106,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                         <img src="{{ URL::asset("/images/cup.png") }}" style="top: 130px; left: 650px;height: 30px; width: 30px; border:none;"></a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/IM/public/login">Perfil</a>
+                            <a class="dropdown-item" href="{{url('/profile')}}">Perfil</a>
                             
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}"
