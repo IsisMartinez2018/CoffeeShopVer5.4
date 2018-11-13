@@ -94,9 +94,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</li>
 					<br>
 					<li class="nav-item" style="margin-left: 25px">
-						<a class="nav-link" href="{{ route('orders.create') }}">Pedidos&nbsp;</a>
+						<a class="nav-link" href="{{ route('orders.create') }}">Pedidos</a>
+					</li>
+					<li class="nav-item" style="margin-left: 25px">
+						<a class="nav-link" href="{{ route('shop.index') }}">Shop&nbsp;</a>
 					</li>
 					
+
+
+
 					@if (Auth::guard('web')->check())
 <li class="nav-item dropdown mr-lg-4">
 
@@ -108,6 +114,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{url('/profile')}}">Perfil</a>
                             
+						<a class="dropdown-item" href="{{ route('cart.index') }}">Cart<span class="cart-count">
+                              @if (Cart::instance('default')->count() > 0)
+
+                              <span>{{ Cart::instance('default')->count()}}</span></span></a>
+                            @endif
+					
+
+
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

@@ -1,15 +1,8 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-
 <!DOCTYPE html>
 <html lang="zxx">
 
 <head>
-	<title>Cappuccino Coffee Restaurants Category Bootstrap Responsive Template | Portfolio :: W3layouts</title>
+	<title>Cappuccino Coffee Restaurants Category Bootstrap Responsive Template | Home :: W3layouts</title>
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8" />
@@ -25,15 +18,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		}
 	</script>
 	<!--// Meta tag Keywords -->
-
 	<!-- Custom-Files -->
-	<link rel="stylesheet" href="css/bootstrap(2).css">
+	<link rel="stylesheet" href="{{ asset('css/bootstrap(2).css')}}">
 	<!-- Bootstrap-Core-CSS -->
-	<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="all">
-	<!-- Lightbox -->
-	<link rel="stylesheet" href="css/style(2).css" type="text/css" media="all" />
+	<link rel="stylesheet" href="{{ asset('css/ken-burns.css')}}" type="text/css" media="all" />
+	<!-- Banner CSS -->
+	<link rel="stylesheet" href="{{ asset('css/style(2).css')}}" type="text/css" media="all" />
 	<!-- Style-CSS -->
-	<link rel="stylesheet" href="css/fontawesome-all(2).css">
+	<link rel="stylesheet" href="{{ asset('css/fontawesome-all.css') }}">
 	<!-- Font-Awesome-Icons-CSS -->
 	<!-- //Custom-Files -->
 
@@ -42,6 +34,229 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<link href="//fonts.googleapis.com/css?family=Timmana&amp;subset=telugu" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Bellefair&amp;subset=hebrew,latin-ext" rel="stylesheet">
 	<!-- //Web-Fonts -->
+
+
+
+
+<style type="text/css">
+.section-description {
+  width: 80%;
+  margin: 44px auto;
+}
+
+.sidebar h3 {
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.sidebar ul {
+  line-height: 2;
+  margin-bottom: 20px;
+}
+
+.featured-section .products {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 60px 30px;
+}
+
+.featured-section .products .product-price {
+  color: #919191 !important;
+}
+.products-section {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  margin: 80px auto 80px;
+}
+
+.products-section .sidebar li.active {
+  font-weight: 500;
+}
+
+.products-section .products {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 60px 30px;
+}
+
+.products-section .products .product-price {
+  color: #919191;
+}
+
+.products-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.product-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 120px;
+  padding: 100px 0 120px;
+}
+
+.product-section .selected {
+  border: 1px solid #979797;
+}
+
+.product-section-images {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 20px;
+  margin-top: 20px;
+}
+
+.product-section-thumbnail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid lightgray;
+  min-height: 66px;
+  cursor: pointer;
+}
+
+.product-section-thumbnail:hover {
+  border: 1px solid #979797;
+}
+
+.product-section-image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #979797;
+  padding: 30px;
+  text-align: center;
+  height: 400px;
+}
+
+.product-section-image img {
+  opacity: 0;
+  -webkit-transition: opacity .10s ease-in-out;
+  transition: opacity .10s ease-in-out;
+  max-height: 100%;
+}
+
+.product-section-image img.active {
+  opacity: 1;
+}
+
+.product-section-information p {
+  margin-bottom: 16px;
+}
+
+.product-section-title {
+  margin-bottom: 0;
+}
+
+.product-section-subtitle {
+  font-size: 20px;
+  font-weight: bold;
+  color: #919191;
+}
+
+.product-section-price {
+  font-size: 38px;
+  color: #212121;
+  margin-bottom: 16px;
+}
+
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: 20px 0;
+  border-radius: 4px;
+}
+
+.pagination > li {
+  display: inline;
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  background-color: #f4f4f4;
+  border-color: #DDDDDD;
+  color: inherit;
+  cursor: default;
+  z-index: 2;
+}
+
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  margin-left: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+  background-color: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  color: inherit;
+  float: left;
+  line-height: 1.42857;
+  margin-left: -1px;
+  padding: 16px 22px;
+  position: relative;
+  text-decoration: none;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover {
+  z-index: 2;
+  color: #23527c;
+  background-color: #eee;
+  border-color: #ddd;
+}
+
+.search-form {
+  position: relative;
+}
+
+.search-icon {
+  color: gray;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+.search-box {
+  padding: 10px 12px 10px 34px;
+  width: 400px;
+  max-width: 100%;
+  font-size: 14px;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </head>
 
@@ -63,13 +278,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="{{url('/homevista')}}">Home
+					<li class="nav-item active">
+						<a class="nav-link" href="{{ url('/homevista')}}">Home
 							<span class="sr-only">(current)</span>
 						</a>
 					</li>
 					<li class="nav-item mx-lg-4">
-						<a class="nav-link" href="{{url('/aboutus')}}">About Us</a>
+						<a class="nav-link" href="{{ url('/aboutus')}}">About Us</a>
 					</li>
 					<li class="nav-item dropdown mr-lg-4">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -78,12 +293,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="{{url('/menu')}}">Menu</a>
-							<a class="dropdown-item" href="{{url('/homevista/#services')}}">Services</a>
+							<a class="dropdown-item scroll" href="{{url('#services')}}">Services</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="{{url('/aboutus')}}">Team</a>
 						</div>
 					</li>
-					<li class="nav-item active">
+					<li class="nav-item">
 						<a class="nav-link" href="{{url('/gallery')}}">Gallery</a>
 					</li>
 					<li class="nav-item mx-lg-4">
@@ -94,10 +309,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</li>
 					<br>
 					<li class="nav-item" style="margin-left: 25px">
-						<a class="nav-link" href="{{ route('orders.create') }}">Pedidos</a>
-					</li>
-					<li class="nav-item" style="margin-left: 25px">
-						<a class="nav-link" href="{{ route('shop.index') }}">Shop&nbsp;</a>
+						<a class="nav-link" href="{{ route('orders.create') }}">Pedidos&nbsp;</a>
 					</li>
 					
 					@if (Auth::guard('web')->check())
@@ -109,8 +321,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                         <img src="{{ URL::asset("/images/cup.png") }}" style="top: 130px; left: 650px;height: 30px; width: 30px; border:none;"></a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/IM/public/login">Perfil</a>
-                            <a class="dropdown-item" href="{{ route('cart.index') }}">Cart<span class="cart-count"><span>{{ Cart::instance('default')->count()}}</span></span></a>
+                            <a class="dropdown-item" href="{{url('/profile')}}">Perfil</a>
+                            <a class="dropdown-item" href="{{ route('cart.index') }}">Cart<span class="cart-count">
+                              @if (Cart::instance('default')->count() > 0)
+
+                              <span>{{ Cart::instance('default')->count()}}</span></span></a>
+                            @endif
                             
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}"
@@ -132,103 +348,92 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</li>
 
 					@endif
+
 				</ul>
 			</div>
 		</nav>
 		<!-- //navigation -->
 	</div>
-	<!-- //header -->
-	<!-- inner banner -->
-	<div class="banner-2">
+<div class="banner-2">
 
 	</div>
 	<!-- breadcrumb -->
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item">
-				<a href="index.html">Home</a>
+				<a href="/">Home</a>
 			</li>
-			<li class="breadcrumb-item active" aria-current="page">Gallery</li>
+			<li class="breadcrumb-item active" aria-current="page">Shop</li>
 		</ol>
 	</nav>
-	<!-- breadcrumb -->
-	<!-- //inner banner -->
 
-	<!-- gallery -->
-	<div class="gallery-agile py-5">
-		<div class="container py-xl-5 py-lg-3">
-			<h5 class="tittle-w3 text-dark text-center mb-5">Gallery</h5>
-			<div class="row gallery-agile-kmsrow">
-				<div class="col-md-4 col-sm-6 gallery-agile-grids">
-					<div class="portfolio-hover">
-						<a href="images/g7.jpg" data-lightbox="example-set" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor magna aliqua.">
-							<img src="images/g7.jpg" class="img-fluid zoom-img" alt="" />
-						</a>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 gallery-agile-grids">
-					<div class="portfolio-hover">
-						<a href="images/g2.jpg" data-lightbox="example-set" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor magna aliqua.">
-							<img src="images/g2.jpg" class="img-fluid zoom-img" alt="" />
-						</a>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 gallery-agile-grids">
-					<div class="portfolio-hover">
-						<a href="images/g3.jpg" data-lightbox="example-set" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor magna aliqua.">
-							<img src="images/g3.jpg" class="img-fluid zoom-img" alt="" />
-						</a>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 gallery-agile-grids">
-					<div class="portfolio-hover">
-						<a href="images/g4.jpg" data-lightbox="example-set" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor magna aliqua.">
-							<img src="images/g4.jpg" class="img-fluid zoom-img" alt="" />
-						</a>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 gallery-agile-grids">
-					<div class="portfolio-hover">
-						<a href="images/g5.jpg" data-lightbox="example-set" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor magna aliqua.">
-							<img src="images/g5.jpg" class="img-fluid zoom-img" alt="" />
-						</a>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 gallery-agile-grids">
-					<div class="portfolio-hover">
-						<a href="images/g6.jpg" data-lightbox="example-set" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor magna aliqua.">
-							<img src="images/g6.jpg" class="img-fluid zoom-img" alt="" />
-						</a>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 gallery-agile-grids">
-					<div class="portfolio-hover">
-						<a href="images/g1.jpg" data-lightbox="example-set" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor magna aliqua.">
-							<img src="images/g1.jpg" class="img-fluid zoom-img" alt="" />
-						</a>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 gallery-agile-grids">
-					<div class="portfolio-hover">
-						<a href="images/g8.jpg" data-lightbox="example-set" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor magna aliqua.">
-							<img src="images/g8.jpg" class="img-fluid zoom-img" alt="" />
-						</a>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 gallery-agile-grids">
-					<div class="portfolio-hover">
-						<a href="images/g9.jpg" data-lightbox="example-set" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor magna aliqua.">
-							<img src="images/g9.jpg" class="img-fluid zoom-img" alt="" />
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- //gallery -->
+	<!-- //EMPIEZA ACA LA SHOP -->
 
-	<!-- footer -->
-	<footer>
+ <div class="products-section container">
+        <div class="sidebar">
+            <h3>By Category</h3>
+            <ul>
+                <li><a href="#">Frio</a></li>
+                <li><a href="#">Caliente</a></li>
+                <li><a href="#">Cremoso</a></li>
+                <li><a href="#">Para llevar</a></li>
+                <li><a href="#">Dulzor</a></li>
+                <li><a href="#">Con alcohol</a></li>
+                
+            </ul>
+
+            <h3>By Price</h3>
+            <ul>
+                <li><a href="#">$0 - $2</a></li>
+                <li><a href="#">$2 - $8</a></li>
+                <li><a href="#">$8+</a></li>
+            </ul>
+        </div> <!-- end sidebar -->
+        <div class="products">
+            @foreach ($products as $product)
+			<div class="product">
+                <a href="{{ route('shop.show', $product->slug)}}">
+                <img src="{{ asset('images/products/'.$product->slug.'.jpg') }}" alt="product" style="width: 200px; height: 200px;">
+            	</a>
+                <a href="{{ route('shop.show', $product->slug)}}">
+                <div class="product-name">{{ $product->name }}
+                </div>
+            	</a>
+                <div class="product-price">{{ $product->presentPrice() }}
+                </div>
+            </div>
+            @endforeach
+
+            
+            </div>
+        </div> <!-- end products -->
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- //TERMINA LA SHOP -->
+
+		<footer>
 		<div class="w3ls-footer-grids py-5">
 			<div class="container py-lg-2">
 				<div class="row">
@@ -315,27 +520,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 	<!-- Js files -->
 	<!-- JavaScript -->
-	<script src="js/jquery-2.2.3.min.js"></script>
+	<script src="{{ asset('js/jquery-2.2.3.min.js')}}"></script>
 	<!-- Default-JavaScript-File -->
-	<script src="js/bootstrap.js"></script>
+	<script src="{{ asset('js/bootstrap.js')}}"></script>
 	<!-- Necessary-JavaScript-File-For-Bootstrap -->
 
-	<!--  light box js -->
-	<script src="js/lightbox-plus-jquery.min.js"></script>
-	<!-- //light box js-->
-
 	<!-- smooth scrolling -->
-	<script src="js/SmoothScroll.min.js"></script>
+	<script src="{{ asset('js/SmoothScroll.min.js')}}"></script>
 	<!-- //smooth scrolling -->
 
 	<!-- move-top -->
-	<script src="js/move-top.js"></script>
+	<script src="{{ asset('js/move-top.js')}}"></script>
 	<!-- easing -->
-	<script src="js/easing.js"></script>
+	<script src="{{ asset('js/easing.js')}}"></script>
 	<!--  necessary snippets for few javascript files -->
-	<script src="js/coffee.js"></script>
+	<script src="{{ asset('js/coffee.js')}}"></script>
 
 	<!-- //Js files -->
+	 <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
+    <script src="{{ asset('https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js')}}"></script>
+    <script src="{{ asset ('https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js')}}"></script>
+    <script src="{{ asset('js/algolia.js') }}"></script>
 
 </body>
 

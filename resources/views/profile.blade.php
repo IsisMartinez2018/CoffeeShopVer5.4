@@ -213,7 +213,7 @@
             
             <dt>Redes sociales</dt>
             <dd>
-                <h2 style="border-bottom-style: solid; color: #007bff;">Facebook <img src="{{ url('svg/facebook.svg') }}" style="width: 20px; height: 23px;"></h2>
+                <h2>Facebook <img src="{{ url('svg/facebook.svg') }}" style="width: 20px; height: 23px;"></h2>
                 /<input type="text" name="facebook" style="padding: 2px 7px;  border: 2px solid #ccc; border-radius: 4px; background-color: #f8f8f8;">
                 <h2>Twitter <img src="{{ url('svg/twitter.svg') }}" style="width: 20px; height: 23px"></h2>
                 @<input type="text" name="twitter" style="padding: 2px 7px; box-sizing: border-box; border: 2px solid #ccc; border-radius: 4px; background-color: #f8f8f8;">

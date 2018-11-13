@@ -129,6 +129,7 @@
     <img src="{{ asset ('/images/'.$profile->avatar)}}" style="top: 130px; left: 650px;height: 30px; width: 30px; border:none; border-radius: 15px;"></a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ url('/profile')}}">Perfil</a>
+                            <a class="dropdown-item" href="{{ route('cart.index') }}">Cart<span class="cart-count"><span>{{ Cart::instance('default')->count()}}</span></span></a>
                             
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}"
