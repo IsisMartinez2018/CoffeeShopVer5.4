@@ -12,7 +12,7 @@ class ShopController extends Controller
      */
     public function index()
     {
-    $products = Product::inRandomOrder()->take(16)->get();
+    $products = Product::inRandomOrder()->take(65)->get();
 
     return view('shop')->with('products', $products);
 
