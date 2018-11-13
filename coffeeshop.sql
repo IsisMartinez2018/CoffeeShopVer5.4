@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2018 a las 19:39:44
+-- Tiempo de generación: 13-11-2018 a las 03:25:15
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -46,6 +46,20 @@ CREATE TABLE `admins` (
 
 INSERT INTO `admins` (`id`, `name`, `last_name`, `email`, `password`, `job_title`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Luna', 'Lovelace', 'luna@hotmail.com', '$2y$10$C8EGH0pUcqPGzINH7SMh5.MI/L3.azw86HZM60RR1eQQ5ozOdDXu6', 'administradora', 'mIWlvANSuDGA3wa1GRWTyx7PgRVJ2KAA0str8xh4VkzKzJTLiR7dQfIHUUdM', '2018-10-27 21:17:14', '2018-10-29 01:25:25');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `category`
+--
+
+CREATE TABLE `category` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -117,6 +131,45 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `products`
+--
+
+CREATE TABLE `products` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `details` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `price` int(11) NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `slug`, `details`, `price`, `description`, `created_at`, `updated_at`) VALUES
+(80, 'americano', 'americano', 'simple, americano, pure blunt flavor', 170, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', '2018-11-13 00:56:29', '2018-11-13 00:56:29'),
+(81, 'capuchino', 'capuchino', 'Milk foam, steamed milk and espresso', 300, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', '2018-11-13 00:56:29', '2018-11-13 00:56:29'),
+(82, 'flat white', 'flat white', 'Steamed milk and espresso', 350, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', '2018-11-13 00:56:29', '2018-11-13 00:56:29'),
+(83, 'latte macchiato', 'latte macchiato', 'Milk foam, espresso and steamed milk with the gradient we love', 360, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', '2018-11-13 00:56:29', '2018-11-13 00:56:29'),
+(84, 'mocaccino', 'mocaccino', 'Chocolate in coffee? We have it. Steamed milk, hot chocolate and espresso', 450, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', '2018-11-13 00:56:29', '2018-11-13 00:56:29'),
+(85, 'expresso', 'expresso', 'Just espresso, with the right foam.', 290, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', '2018-11-13 00:56:29', '2018-11-13 00:56:29'),
+(86, 'ice coffee', 'ice coffee', 'On the rocks without the alcohol? And creamy.', 680, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', '2018-11-13 00:56:29', '2018-11-13 00:56:29'),
+(87, 'frappe', 'frappe', 'You like that cold feeling, with the cream burning your throat with ice.', 780, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', '2018-11-13 00:56:29', '2018-11-13 00:56:29'),
+(88, 'irish', 'irish', 'Whats better than alcohol or coffee? Joining them together', 1100, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', '2018-11-13 00:56:29', '2018-11-13 00:56:29'),
+(89, 'affogato', 'affogato', 'The ice cream melts with the hot coffee pouring.', 1120, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', '2018-11-13 00:56:29', '2018-11-13 00:56:29'),
+(90, 'arabica', 'arabica', 'Arabica coffee beans, with the most quality', 2000, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', '2018-11-13 00:56:29', '2018-11-13 00:56:29'),
+(91, 'robusta', 'robusta', 'Robusta coffee beans, with the most quality', 2000, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', '2018-11-13 00:56:29', '2018-11-13 00:56:29'),
+(92, 'canned', 'canned', 'Coffee, but canned. You decide whether hot or cold', 340, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', '2018-11-13 00:56:29', '2018-11-13 00:56:29'),
+(93, 'capsule', 'capsule', 'On the go? not so much, use a coffee machine', 200, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', '2018-11-13 00:56:29', '2018-11-13 00:56:29'),
+(94, 'sachets', 'sachets', 'Just what we need when you want something fast', 100, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', '2018-11-13 00:56:29', '2018-11-13 00:56:29'),
+(95, 'instant', 'instant', 'Instant simple coffee', 1300, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', '2018-11-13 00:56:29', '2018-11-13 00:56:29');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `profile`
 --
 
@@ -180,6 +233,12 @@ ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `migrations`
 --
 ALTER TABLE `migrations`
@@ -191,6 +250,12 @@ ALTER TABLE `migrations`
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
   ADD KEY `orders_id_users_foreign` (`id_users`);
+
+--
+-- Indices de la tabla `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `profile`
@@ -216,6 +281,12 @@ ALTER TABLE `admins`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT de la tabla `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
@@ -226,6 +297,12 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `orders`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT de la tabla `profile`
