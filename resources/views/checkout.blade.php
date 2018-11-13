@@ -206,6 +206,93 @@ form button[type="submit"] {
   background: #212121;
 }
 
+.cart-count {
+  display: inline-block;
+  background: #FFD94D;
+  color: #212121;
+  line-height: 0;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.cart-count span {
+  display: inline-block;
+  padding-top: 50%;
+  padding-bottom: 50%;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.StripeElement {
+  background-color: white;
+  height: 40px;
+  padding: 10px 12px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+.button {
+  border: 1px solid #212121;
+  padding: 12px 40px;
+}
+
+.button:hover {
+  color: #e9e9e9;
+  background: #212121;
+}
+
+.button-white {
+  border: 1px solid #e9e9e9;
+  color: #e9e9e9 !important;
+}
+
+.button-white:hover {
+  color: #212121 !important;
+  background: #e9e9e9;
+}
+
+.button-primary {
+  background: #3EBFA4;
+  color: white !important;
+  padding: 12px 40px;
+}
+
+.button-primary:hover {
+  background: #35a48d;
+}
+
+ .button-primary:disabled {
+  background: #63cdb7;
+  cursor: not-allowed;
+}
+
+.button-plain {
+  border: 1px solid #212121 !important;
+  background: transparent;
+}
+
+.button-container {
+  margin: 80px 0;
+}
+
+.button {
+  margin-right: 14px;
+}
 
 
 
@@ -279,9 +366,13 @@ form button[type="submit"] {
 					</li>
 					<br>
 					<li class="nav-item" style="margin-left: 25px">
-						<a class="nav-link" href="{{ route('orders.create') }}">Pedidos&nbsp;</a>
+						<a class="nav-link" href="{{ route('orders.create') }}">Pedidos</a>
 					</li>
-					
+					<li class="nav-item" style="margin-left: 25px">
+            <a class="nav-link" href="{{ route('shop.index') }}">Shop&nbsp;</a>
+          </li>
+          
+
 					@if (Auth::guard('web')->check())
 <li class="nav-item dropdown mr-lg-4">
 
@@ -335,14 +426,14 @@ form button[type="submit"] {
 			<li class="breadcrumb-item">
 				<a href="index.html">Home</a>
 			</li>
-			<li class="breadcrumb-item active" aria-current="page">Producto</li>
+			<li class="breadcrumb-item active" aria-current="page">Checkout</li>
 		</ol>
 	</nav>
 
 <!-- //empieza checkout -->
 
     <div class="container">
-
+<br><br>
         @if (session()->has('success_message'))
             <div class="spacer"></div>
             <div class="alert alert-success">
@@ -362,140 +453,126 @@ form button[type="submit"] {
         @endif
 
         <div class="container">
-         <h1 class="checkout-heading stylish-heading">Checkout</h1>
+             <h1 class="checkout-heading stylish-heading">Checkout</h1>
         <div class="checkout-section">
             <div>
-                <form action="#">
+                <form action="{{ route('checkout.store') }}" method="POST" id="payment-form">
+                    {{ csrf_field() }}
                     <h2>Billing Details</h2>
-                     <div class="form-group">
+
+                    <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" class="form-control" id="email" name="email" value="">
+                        <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required>
                     </div>
                     <div class="form-group">
-                         <label for="name_on_card">Name on Card</label>
-                        <input type="text" class="form-control" id="name_on_card" name="name_on_card" value="">
-                      </div>
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required>
+                    </div>
                     <div class="form-group">
                         <label for="address">Address</label>
-                        <input type="text" class="form-control" id="address" name="address" value="">
+                        <input type="text" class="form-control" id="address" name="address" value="{{ old('address') }}" required>
                     </div>
-                     <div class="half-form">
+
+                    <div class="half-form">
                         <div class="form-group">
                             <label for="city">City</label>
-                            <input type="text" class="form-control" id="city" name="city" value="">
+                            <input type="text" class="form-control" id="city" name="city" value="{{ old('city') }}" required>
                         </div>
                         <div class="form-group">
                             <label for="province">Province</label>
-                            <input type="text" class="form-control" id="province" name="province" value="">
+                            <input type="text" class="form-control" id="province" name="province" value="{{ old('province') }}" required>
                         </div>
                     </div> <!-- end half-form -->
-                     <div class="half-form">
+
+                    <div class="half-form">
                         <div class="form-group">
                             <label for="postalcode">Postal Code</label>
-                            <input type="text" class="form-control" id="postalcode" name="postalcode" value="">
+                            <input type="text" class="form-control" id="postalcode" name="postalcode" value="{{ old('postalcode') }}" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone</label>
-                            <input type="text" class="form-control" id="phone" name="phone" value="">
+                            <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone') }}" required>
                         </div>
                     </div> <!-- end half-form -->
-                     <div class="spacer"></div>
-                     <h2>Payment Details</h2>
-                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" value="">
-                    </div>
+
+                    <div class="spacer"></div>
+
+                    <h2>Payment Details</h2>
+
                     <div class="form-group">
-                        <label for="address">Address</label>
-                        <input type="text" class="form-control" id="address" name="address" value="">
-                    </div>
-                     
-
-                    	<div class="form-group">
-                        <label for="cc-number">Credit Card Number</label>
-                        <input type="text" class="form-control" id="cc-number" name="cc-number" value="">
+                        <label for="name_on_card">Name on Card</label>
+                        <input type="text" class="form-control" id="name_on_card" name="name_on_card" value="">
                     </div>
 
-
-
-
-
-                     <div class="half-form">
-                        <div class="form-group">
-                            <label for="expiry">Expiry</label>
-                            <input type="text" class="form-control" id="expiry" name="expiry" placeholder="MM/DD">
+                    <div class="form-group">
+                        <label for="card-element">
+                          Credit or debit card
+                        </label>
+                        <div id="card-element">
+                          <!-- a Stripe Element will be inserted here. -->
                         </div>
-                        <div class="form-group">
-                            <label for="cvc">CVC Code</label>
-                            <input type="text" class="form-control" id="cvc" name="cvc" value="">
-                        </div>
-                    </div> <!-- end half-form -->
-                     <div class="spacer"></div>
-                     <button type="submit" class="button-primary full-width">Complete Order</button>
-                 </form>
+
+                        <!-- Used to display form errors -->
+                        <div id="card-errors" role="alert"></div>
+                    </div>
+                    <div class="spacer"></div>
+
+                    <button type="submit" id="complete-order" class="button-primary full-width">Complete Order</button>
+
+
+                </form>
             </div>
-             <div class="checkout-table-container">
+
+
+
+            <div class="checkout-table-container">
                 <h2>Your Order</h2>
-                 <div class="checkout-table">
+
+                <div class="checkout-table">
+                    @foreach (Cart::content() as $item)
                     <div class="checkout-table-row">
                         <div class="checkout-table-row-left">
-                            <img src="/img/macbook-pro.png" alt="item" class="checkout-table-img">
+                            <img src="{{ asset('images/products/'.$item->model->slug.'.jpg') }}" alt="item" class="checkout-table-img">
                             <div class="checkout-item-details">
-                                <div class="checkout-table-item">MacBook Pro</div>
-                                <div class="checkout-table-description">15 inch, 1TB SSD, 32GB RAM</div>
-                                <div class="checkout-table-price">$2499.99</div>
+                                <div class="checkout-table-item">{{ $item->model->name }}</div>
+                                <div class="checkout-table-description">{{ $item->model->details }}</div>
+                                <div class="checkout-table-price">{{ $item->model->presentPrice() }}</div>
                             </div>
                         </div> <!-- end checkout-table -->
-                         <div class="checkout-table-row-right">
-                            <div class="checkout-table-quantity">1</div>
+
+                        <div class="checkout-table-row-right">
+                            <div class="checkout-table-quantity">{{ $item->qty }}</div>
                         </div>
                     </div> <!-- end checkout-table-row -->
-                     <div class="checkout-table-row">
-                        <div class="checkout-table-row-left">
-                            <img src="/images/macbook-pro.png" alt="item" class="checkout-table-img">
-                            <div class="checkout-item-details">
-                                <div class="checkout-table-item">MacBook Pro</div>
-                                <div class="checkout-table-description">15 inch, 1TB SSD, 32GB RAM</div>
-                                <div class="checkout-table-price">$2499.99</div>
-                            </div>
-                        </div> <!-- end checkout-table -->
-                         <div class="checkout-table-row-right">
-                            <div class="checkout-table-quantity">1</div>
-                        </div>
-                    </div> <!-- end checkout-table-row -->
-                     <div class="checkout-table-row">
-                        <div class="checkout-table-row-left">
-                            <img src="/images/macbook-pro.png" alt="item" class="checkout-table-img">
-                            <div class="checkout-item-details">
-                                <div class="checkout-table-item">MacBook Pro</div>
-                                <div class="checkout-table-description">15 inch, 1TB SSD, 32GB RAM</div>
-                                <div class="checkout-table-price">$2499.99</div>
-                            </div>
-                        </div> <!-- end checkout-table -->
-                         <div class="checkout-table-row-right">
-                            <div class="checkout-table-quantity">1</div>
-                        </div>
-                    </div> <!-- end checkout-table-row -->
-                 </div> <!-- end checkout-table -->
-                 <div class="checkout-totals">
+                    @endforeach
+
+
+
+                </div> <!-- end checkout-table -->
+
+                <div class="checkout-totals">
                     <div class="checkout-totals-left">
                         Subtotal <br>
-                        Discount (10OFF - 10%) <br>
+                        {{-- Discount (10OFF - 10%) <br> --}}
                         Tax <br>
                         <span class="checkout-totals-total">Total</span>
-                     </div>
-                     <div class="checkout-totals-right">
-                        $7499.97 <br>
-                        -$750.00 <br>
-                        $975.00 <br>
-                        <span class="checkout-totals-total">$8474.97</span>
-                     </div>
-                </div> <!-- end checkout-totals -->
-                 
-            </div>
-         </div> <!-- end checkout-section -->
-   </div> </div>
 
+                    </div>
+
+                    <div class="checkout-totals-right">
+                        {{ presentPrice(Cart::subtotal()) }} <br>
+                        {{-- -$750.00 <br> --}}
+                        {{ presentPrice(Cart::tax()) }} <br>
+                        <span class="checkout-totals-total">{{ presentPrice(Cart::total()) }}</span>
+
+                    </div>
+                </div> <!-- end checkout-totals -->
+
+            </div>
+
+        </div> <!-- end checkout-section -->
+    </div>
+</div>
 <!-- //TERMINA LA SHOP -->
 
 		<footer>
@@ -585,6 +662,86 @@ form button[type="submit"] {
 
 	<!-- Js files -->
 	<!-- JavaScript -->
+
+<script>
+        (function(){
+            // Create a Stripe client
+            var stripe = Stripe('pk_test_hqvhCMTwUyvyqbxVjFbqznkw');
+             // Create an instance of Elements
+            var elements = stripe.elements();
+             // Custom styling can be passed to options when creating an Element.
+            // (Note that this demo uses a wider set of styles than the guide below.)
+            var style = {
+              base: {
+                color: '#32325d',
+                lineHeight: '18px',
+                fontFamily: '"Roboto", Helvetica Neue", Helvetica, sans-serif',
+                fontSmoothing: 'antialiased',
+                fontSize: '16px',
+                '::placeholder': {
+                  color: '#aab7c4'
+                }
+              },
+              invalid: {
+                color: '#fa755a',
+                iconColor: '#fa755a'
+              }
+            };
+             // Create an instance of the card Element
+            var card = elements.create('card', {
+                style: style,
+                hidePostalCode: true
+            });
+             // Add an instance of the card Element into the `card-element` <div>
+            card.mount('#card-element');
+             // Handle real-time validation errors from the card Element.
+            card.addEventListener('change', function(event) {
+              var displayError = document.getElementById('card-errors');
+              if (event.error) {
+                displayError.textContent = event.error.message;
+              } else {
+                displayError.textContent = '';
+              }
+            });
+             // Handle form submission
+            var form = document.getElementById('payment-form');
+            form.addEventListener('submit', function(event) {
+              event.preventDefault();
+               // Disable the submit button to prevent repeated clicks
+              document.getElementById('complete-order').disabled = true;
+               var options = {
+                name: document.getElementById('name_on_card').value,
+                address_line1: document.getElementById('address').value,
+                address_city: document.getElementById('city').value,
+                address_state: document.getElementById('province').value,
+                address_zip: document.getElementById('postalcode').value
+              }
+               stripe.createToken(card, options).then(function(result) {
+                if (result.error) {
+                  // Inform the user if there was an error
+                  var errorElement = document.getElementById('card-errors');
+                  errorElement.textContent = result.error.message;
+                   // Enable the submit button
+                  document.getElementById('complete-order').disabled = false;
+                } else {
+                  // Send the token to your server
+                  stripeTokenHandler(result.token);
+                }
+              });
+            });
+             function stripeTokenHandler(token) {
+              // Insert the token ID into the form so it gets submitted to the server
+              var form = document.getElementById('payment-form');
+              var hiddenInput = document.createElement('input');
+              hiddenInput.setAttribute('type', 'hidden');
+              hiddenInput.setAttribute('name', 'stripeToken');
+              hiddenInput.setAttribute('value', token.id);
+              form.appendChild(hiddenInput);
+               // Submit the form
+              form.submit();
+            }
+        })();
+    </script>
 	<script src="js/jquery-2.2.3.min.js"></script>
 	<!-- Default-JavaScript-File -->
 	<script src="js/bootstrap.js"></script>

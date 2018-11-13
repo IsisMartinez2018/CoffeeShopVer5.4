@@ -26,6 +26,22 @@
         dt { font-style: italic; font-weight: bold; font-size: 18px; text-align: right; padding: 0 26px 0 0; width: 150px; float: left; height: 100px; border-right: 1px solid #999;  }
         dd { width: 600px; float: right; }
         dd.clear { float: none; margin: 0; height: 15px; }
+        .cart-count {
+  display: inline-block;
+  background: #FFD94D;
+  color: #212121;
+  line-height: 0;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.cart-count span {
+  display: inline-block;
+  padding-top: 50%;
+  padding-bottom: 50%;
+  margin-left: 6px;
+  margin-right: 6px;
+}
         
      </style>
 
@@ -101,19 +117,23 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/gallery')}}">Gallery&nbsp;</a>
+                        <a class="nav-link" href="{{ url('/gallery')}}">Gallery&nbsp;&nbsp;</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/menu')}}">Menu&nbsp;</a>
+                        <a class="nav-link" href="{{ url('/menu')}}">&nbsp;Menu&nbsp;</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/contactus')}}">Contact Us&nbsp;</a>
+                        <a class="nav-link" href="{{ url('/contactus')}}">&nbsp;&nbsp;Contact Us</a>
                     </li>
                     <br>
                     <li class="nav-item" style="margin-left: 25px">
                         <a class="nav-link" href="{{ route('orders.create') }}">Pedidos&nbsp;</a>
                     </li>
+                    <li class="nav-item" style="margin-left: 25px">
+                        <a class="nav-link" href="{{ route('shop.index') }}">Shop&nbsp;&nbsp;</a>
+                    </li>
                     
+
 
                     @if (Auth::guard('web')->check())
 <li class="nav-item dropdown mr-lg-4">

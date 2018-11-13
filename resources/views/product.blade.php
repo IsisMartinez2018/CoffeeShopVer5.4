@@ -159,7 +159,7 @@
 }
 
 .product-section-image img {
-  opacity: 0;
+  opacity: 0.9;
   -webkit-transition: opacity .10s ease-in-out;
   transition: opacity .10s ease-in-out;
   max-height: 100%;
@@ -249,6 +249,22 @@ section {
 .button-container {
   margin: 80px 0;
 }
+.cart-count {
+  display: inline-block;
+  background: #FFD94D;
+  color: #212121;
+  line-height: 0;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.cart-count span {
+  display: inline-block;
+  padding-top: 50%;
+  padding-bottom: 50%;
+  margin-left: 6px;
+  margin-right: 6px;
+}
 </style>
 
 
@@ -312,9 +328,13 @@ section {
 					</li>
 					<br>
 					<li class="nav-item" style="margin-left: 25px">
-						<a class="nav-link" href="{{ route('orders.create') }}">Pedidos&nbsp;</a>
+						<a class="nav-link" href="{{ route('orders.create') }}">Pedidos</a>
+					</li>
+					<li class="nav-item" style="margin-left: 25px">
+						<a class="nav-link" href="{{ route('shop.index') }}">Shop&nbsp;</a>
 					</li>
 					
+
 					@if (Auth::guard('web')->check())
 <li class="nav-item dropdown mr-lg-4">
 
@@ -394,13 +414,8 @@ section {
              	<input type="hidden" name="id" value="{{$product->id}}">
              	<input type="hidden" name="name" value="{{$product->name}}">
              	<input type="hidden" name="price" value="{{$product->price}}">
-             	
              	<button type="submit" class="button button-plain">Add to cart</button>
-             	
-
-
-
-             </form>
+              </form>
     </div> 
     <br><br>
     <!-- end product-section -->
@@ -412,11 +427,13 @@ section {
 
 
             	@foreach ($mightAlsoLike as $product)
-                <div class="might-like-product"><a href="{{ route('shop.show', $product->slug)}}"></a>
+                <div class="might-like-product"><a href="{{ route('shop.show', $product->slug)}}">
                     <img src="{{ asset('images/products/'.$product->slug.'.jpg') }}" alt="product">
                     <div class="might-like-product-name">{{ $product->name}}</div>
                     <div class="might-like-product-price">{{ $product->presentPrice() }}</div>
+                </a>
                 </div>
+
                 @endforeach
 
                 

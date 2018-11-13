@@ -291,6 +291,7 @@
 
 
 
+
 </style>
 </head>
 
@@ -343,8 +344,11 @@
 					</li>
 					<br>
 					<li class="nav-item" style="margin-left: 25px">
-						<a class="nav-link" href="{{ route('orders.create') }}">Pedidos&nbsp;</a>
+						<a class="nav-link" href="{{ route('orders.create') }}">Pedidos</a>
 					</li>
+          <li class="nav-item" style="margin-left: 25px">
+            <a class="nav-link" href="{{ route('shop.index') }}">Shop&nbsp;</a>
+          </li>
 					
 					@if (Auth::guard('web')->check())
 <li class="nav-item dropdown mr-lg-4">
@@ -507,8 +511,8 @@
                 </div>
             </div> <!-- end cart-totals -->
              <div class="cart-buttons">
-                <a href="#" class="button">Continue Shopping</a>
-                <a href="#" class="button-primary">Proceed to Checkout</a>
+                <a href="{{ route ('shop.index')}}" class="button">Continue Shopping</a>
+                <a href="{{ route ('checkout.index')}}" class="button-primary">Proceed to Checkout</a>
             </div>
 
 @else
@@ -537,8 +541,14 @@
                     </div>
                     <div class="cart-table-row-right">
                         <div class="cart-table-actions">
+                           <form action="{{ route('saveForLater.destroy', $item->rowId) }}" method="POST">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
                         <button type="submit" class="cart-options">Remove</button>
                             </form>
+                            <br>
+
+
                              <form action="{{ route('saveForLater.switchToCart', $item->rowId) }}" method="POST">
                                 {{ csrf_field() }}
                                  <button type="submit" class="cart-options">Move to Cart</button>
@@ -691,6 +701,9 @@
     <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
     <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
     <script src="{{ asset('js/algolia.js') }}"></script>
+
+
+
 
 </body>
 </html>

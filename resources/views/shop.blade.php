@@ -244,6 +244,22 @@
   max-width: 100%;
   font-size: 14px;
 }
+.cart-count {
+  display: inline-block;
+  background: #FFD94D;
+  color: #212121;
+  line-height: 0;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.cart-count span {
+  display: inline-block;
+  padding-top: 50%;
+  padding-bottom: 50%;
+  margin-left: 6px;
+  margin-right: 6px;
+}
 </style>
 
 
@@ -309,9 +325,13 @@
 					</li>
 					<br>
 					<li class="nav-item" style="margin-left: 25px">
-						<a class="nav-link" href="{{ route('orders.create') }}">Pedidos&nbsp;</a>
+						<a class="nav-link" href="{{ route('orders.create') }}">Pedidos</a>
+					</li>
+					<li class="nav-item" style="margin-left: 25px">
+						<a class="nav-link" href="{{ route('shop.index') }}">Shop&nbsp;</a>
 					</li>
 					
+
 					@if (Auth::guard('web')->check())
 <li class="nav-item dropdown mr-lg-4">
 
@@ -379,6 +399,16 @@
                 <li><a href="#">Para llevar</a></li>
                 <li><a href="#">Dulzor</a></li>
                 <li><a href="#">Con alcohol</a></li>
+                <li><a href="#">Sabor</a></li>
+                 <li><a href="#">Mezclas</a></li>
+                 <li><a href="#">Filtros</a></li>
+                 <li><a href="#">Granos</a></li>
+                  <li><a href="#">Bolsitas</a></li>
+                 <li><a href="#">Dulces acompañantes</a></li>
+                 <li><a href="#">Salados acompañantes</a></li>
+                 <li><a href="#">Especiales de temporada</a></li>
+                <li><a href="#">Por pais</a></li>
+                
                 
             </ul>
 

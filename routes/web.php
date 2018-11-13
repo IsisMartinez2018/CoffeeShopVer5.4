@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -84,18 +85,13 @@ Route::post('/cart/switchToSaveForLater/{product}', 'CartController@switchToSave
 Route::delete('/saveForLater/{product}', 'SaveForLaterController@destroy')->name('saveForLater.destroy');
 Route::post('/saveForLater/switchToCart/{product}', 'SaveForLaterController@switchToCart')->name('saveForLater.switchToCart');
 
+Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
+
+Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
+
+Route::get('/thankyou', 'ConfirmationController@index')->name('confirmation.index');
 
 
-
-
-
-Route::get('/product', function () {
-    return view('product');
-});
-
-Route::get('/checkout', function () {
-    return view('checkout');
-});
 
 
 
