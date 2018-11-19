@@ -105,7 +105,9 @@ if($request->hasFile('avatar')){
     {
         $users=Auth::user()->id;
     $profile=profile::where('id_users', 'like', $users)->first();
-        return  view('listadoperfil',compact('profile'));
+    $orders=orders::where('id_users', 'like', $users)->get();
+    
+        return  view('listadoperfil',compact('profile', 'orders'));
     }
 
     /**
@@ -131,7 +133,7 @@ if($request->hasFile('avatar')){
     public function update(Request $request, $id)
     {
       
-    $this->validate($request,['tlf'=>'required|numeric', 'email'=>'required|email|max:255', 'direccion'=>'required|string|max:255', 'facebook'=>'required','twitter'=>'required', 'google'=>'required|string|max:255','instagram'=>'required', 'id_users'=>'unique:profile']);
+    $this->validate($request,['tlf'=>'required|numeric', 'email'=>'required|email|max:255', 'direccion'=>'required|string|max:255', 'facebook'=>'required','twitter'=>'required', 'google'=>'required|string|max:255','instagram'=>'required']);
 
         $user = profile::find($id);
     $user->tlf = Input::get("tlf");

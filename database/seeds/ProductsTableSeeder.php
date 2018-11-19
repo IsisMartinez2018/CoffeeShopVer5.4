@@ -18,49 +18,54 @@ class ProductsTableSeeder extends Seeder
             'details' => 'simple, americano, pure blunt flavor',
             'price' => 170,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(2);
          Product::create([
             'name' => 'capuchino',
             'slug' => 'capuchino',
             'details' => 'Milk foam, steamed milk and espresso',
             'price' => 300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(2);
+
+
+         $product = new Product;
+         $product->categories()->attach(3);
+
          Product::create([
             'name' => 'flat white',
             'slug' => 'flat white',
             'details' => 'Steamed milk and espresso',
             'price' => 350,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(2);
          Product::create([
             'name' => 'latte macchiato',
             'slug' => 'latte macchiato',
             'details' => 'Milk foam, espresso and steamed milk with the gradient we love',
             'price' => 360,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(2);
          Product::create([
             'name' => 'mocaccino',
             'slug' => 'mocaccino',
             'details' => 'Chocolate in coffee? We have it. Steamed milk, hot chocolate and espresso',
             'price' => 450,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(2);
          Product::create([
             'name' => 'expresso',
             'slug' => 'expresso',
             'details' => 'Just espresso, with the right foam.',
             'price' => 290,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(2);
          Product::create([
             'name' => 'ice coffee',
             'slug' => 'ice coffee',
             'details' => 'On the rocks without the alcohol? And creamy.',
             'price' => 680,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(1);
 
         Product::create([
             'name' => 'frappe',
@@ -68,7 +73,7 @@ class ProductsTableSeeder extends Seeder
             'details' => 'You like that cold feeling, with the cream burning your throat with ice.',
             'price' => 780,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(1);
 
         Product::create([
             'name' => 'irish',
@@ -76,7 +81,7 @@ class ProductsTableSeeder extends Seeder
             'details' => 'Whats better than alcohol or coffee? Joining them together',
             'price' => 1100,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(2);
 
         Product::create([
             'name' => 'affogato',
@@ -84,7 +89,7 @@ class ProductsTableSeeder extends Seeder
             'details' => 'The ice cream melts with the hot coffee pouring.',
             'price' => 1120,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(1);
 
         Product::create([
             'name' => 'arabica',
@@ -92,7 +97,7 @@ class ProductsTableSeeder extends Seeder
             'details' => 'Arabica coffee beans, with the most quality',
             'price' => 2000,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(4);
 
         Product::create([
             'name' => 'robusta',
@@ -100,7 +105,7 @@ class ProductsTableSeeder extends Seeder
             'details' => 'Robusta coffee beans, with the most quality',
             'price' => 2000,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(4);
 
         Product::create([
             'name' => 'canned',
@@ -108,7 +113,7 @@ class ProductsTableSeeder extends Seeder
             'details' => 'Coffee, but canned. You decide whether hot or cold',
             'price' => 340,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(1);
 
         Product::create([
             'name' => 'capsule',
@@ -116,7 +121,7 @@ class ProductsTableSeeder extends Seeder
             'details' => 'On the go? not so much, use a coffee machine',
             'price' => 200,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(4);
 
         Product::create([
             'name' => 'sachets',
@@ -124,7 +129,7 @@ class ProductsTableSeeder extends Seeder
             'details' => 'Just what we need when you want something fast',
             'price' => 100,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(4);
 
         Product::create([
             'name' => 'instant',
@@ -132,7 +137,7 @@ class ProductsTableSeeder extends Seeder
             'details' => 'Instant simple coffee',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(4);
 
 
 
@@ -149,35 +154,35 @@ Product::create([
             'details' => 'Three types of milk in just one cake. Try it.',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(3);
 Product::create([
             'name' => 'alfajor',
             'slug' => 'alfajor',
             'details' => 'If this is really Argentinian, then they are genius.',
             'price' => 1000,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(5);
 Product::create([
             'name' => 'apple pie',
             'slug' => 'apple pie',
             'details' => 'Best type of pie there exists. Just american.',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(5);
 Product::create([
             'name' => 'bags',
             'slug' => 'bags',
             'details' => 'Coffee in little bags? Incredible.',
             'price' => 1150,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(4);
 Product::create([
             'name' => 'banana bread',
             'slug' => 'banana bread',
             'details' => 'As the name tells, just banana bread.',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(5);
 
 Product::create([
             'name' => 'birthday cake cupcake',
@@ -185,182 +190,182 @@ Product::create([
             'details' => 'For YOU beloved one',
             'price' => 700,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(5);
 Product::create([
             'name' => 'blueberry muffin',
             'slug' => 'blueberry muffin',
             'details' => 'Not as sweet as a cupcake, just squishy',
             'price' => 720,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(5);
 Product::create([
             'name' => 'brazil beans',
             'slug' => 'brazil beans',
             'details' => 'Importation material, extra quality',
             'price' => 1300,
             'description' => '250gr. Made in brazil. Pure. No added ingredients nor sugar. From imported and local ingredients.',
-        ]);
+        ])->categories()->attach(4);
 Product::create([
             'name' => 'brownie',
             'slug' => 'brownie',
             'details' => 'Name someone who doesnt love brownies. Exactly, no one',
             'price' => 770,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(5);
 Product::create([
             'name' => 'butter cookies',
             'slug' => 'butter cookies',
             'details' => 'The best type of cookie there is. They are also called danish. Woah.',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(5);
 Product::create([
             'name' => 'carrot cake',
             'slug' => 'carrot cake',
             'details' => 'Have a slice of squishyness',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(5);
 Product::create([
             'name' => 'cheesecake',
             'slug' => 'cheesecake',
             'details' => 'If cheese wasnt good enough already, there it is, in a cake',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(5);
 Product::create([
             'name' => 'chicken sandwich',
             'slug' => 'chicken sandwich',
             'details' => 'I swear this isnt subways',
             'price' => 780,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(13);
 Product::create([
             'name' => 'chocolate icecream',
             'slug' => 'chocolate icecream',
             'details' => 'The right pal to a coffee break',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(5);
 Product::create([
             'name' => 'chocolate chips',
             'slug' => 'chocolate chips',
             'details' => 'The right pal to a coffee break, in another flavor',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(5);
 Product::create([
             'name' => 'chocolate cupcake',
             'slug' => 'chocolate cupcake',
             'details' => 'One cupcake is not enough',
             'price' => 590,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(5);
 Product::create([
             'name' => 'chocolate syrup',
             'slug' => 'chocolate syrup',
             'details' => 'Inside the coffee? Above it? You decide',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(5);
 Product::create([
             'name' => 'coconut cake',
             'slug' => 'coconut cake',
             'details' => 'Seeing this makes you droll',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(5);
 Product::create([
             'name' => 'colombian beans',
             'slug' => 'colombian beans',
             'details' => 'People say, best beans in the world',
             'price' => 2100,
             'description' => '250gr. Made in colombia. Pure. No added ingredients nor sugar. From imported and local ingredients.',
-        ]);
+        ])->categories()->attach(4);
 Product::create([
             'name' => 'cookies',
             'slug' => 'cookies',
             'details' => 'Have one ...or two. Or three of these while coffeeing',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(5);
 Product::create([
             'name' => 'cream puff',
             'slug' => 'cream puff',
             'details' => 'Fancy stuff.',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(5);
 Product::create([
             'name' => 'croissant',
             'slug' => 'croissant',
             'details' => 'Perfect as your breakfast',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(13);
 Product::create([
             'name' => 'donuts',
             'slug' => 'donuts',
             'details' => 'Endulge',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(12);
 Product::create([
             'name' => 'double chocolate',
             'slug' => 'double chocolate',
             'details' => 'How about it with a mochaccino?',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(12);
 Product::create([
             'name' => 'empanadilla',
             'slug' => 'empanadilla',
             'details' => 'Bites, and bites',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(13);
 Product::create([
             'name' => 'macarons',
             'slug' => 'macarons',
             'details' => 'A classic, fancy threat.',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(12);
 Product::create([
             'name' => 'mint icecream',
             'slug' => 'mint icecream',
             'details' => 'Super refreshing',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(12);
 Product::create([
             'name' => 'palmerita',
             'slug' => 'palmerita',
             'details' => 'Adorably sweet',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(12);
 Product::create([
             'name' => 'pan jamon',
             'slug' => 'pan jamon',
             'details' => 'Got ya covered in christmas',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(14);
 Product::create([
             'name' => 'pistachio icecream',
             'slug' => 'pistachio icecream',
             'details' => 'Salty and sweet',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(5);
 Product::create([
             'name' => 'pumpkin cake',
             'slug' => 'pumpkin cake',
             'details' => 'For Halloween! or just whenever',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(12);
 
 Product::create([
             'name' => 'rainbow cupcake',
@@ -368,49 +373,49 @@ Product::create([
             'details' => 'A rainbow for the heart. Or your special occasion',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(12);
 Product::create([
             'name' => 'strawberry cake',
             'slug' => 'strawberry cake',
             'details' => 'A classic too',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(12);
 Product::create([
             'name' => 'strawberry donut',
             'slug' => 'strawberry donut',
             'details' => 'Strawberry on everything',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(12);
 Product::create([
             'name' => 'strawberry syrup',
             'slug' => 'strawberry syrup',
             'details' => 'Dont know if this is of your liking in your coffee, but recommend anyways',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(4);
 Product::create([
             'name' => 'turron',
             'slug' => 'turron',
             'details' => 'Wish to have it all christmas long',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(14);
 Product::create([
             'name' => 'vainilla cake',
             'slug' => 'vainila cake',
             'details' => 'When you dont fancy that much amount of sugar',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(12);
 Product::create([
             'name' => 'vainilla cupcake',
             'slug' => 'vainilla cupcake',
             'details' => 'Simple.',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(12);
 
 
 
@@ -428,35 +433,35 @@ Product::create([
             'details' => 'Simple.',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(12);
 Product::create([
             'name' => 'generic bags',
             'slug' => 'generic bags',
             'details' => 'Simple.',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(11);
 Product::create([
             'name' => 'ginger cookies',
             'slug' => 'ginger cookies',
             'details' => 'Simple.',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(12);
 Product::create([
             'name' => 'milkshakes',
             'slug' => 'milkshakes',
             'details' => 'Simple.',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(5);
 Product::create([
             'name' => 'pan dulce',
             'slug' => 'pan dulce',
             'details' => 'Simple.',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(12);
 
 Product::create([
             'name' => 'pan dulce chocolate',
@@ -464,14 +469,14 @@ Product::create([
             'details' => 'Simple.',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(12);
 Product::create([
             'name' => 'waffles',
             'slug' => 'waffles',
             'details' => 'Simple.',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(13);
 
 Product::create([
             'name' => 'waffles dulces',
@@ -479,7 +484,7 @@ Product::create([
             'details' => 'Simple.',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(12);
 
 
 
@@ -494,28 +499,28 @@ Product::create([
             'details' => 'Mix of different types of nuts and rice cereal.',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(12);
 Product::create([
             'name' => 'ginger butter biscuits',
             'slug' => 'ginger butter biscuits',
             'details' => 'With bakery cream inside.',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(12);
 Product::create([
             'name' => 'maria biscuits',
             'slug' => 'maria biscuits',
             'details' => 'The classical maria biscuits.',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(12);
 Product::create([
             'name' => 'maria biscuits pack',
             'slug' => 'maria biscuits pack',
             'details' => '24 packs. One price',
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ]);
+        ])->categories()->attach(4);
 
 
 
