@@ -80,6 +80,18 @@ Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::post('/cart', 'CartController@store')->name('cart.store');
 
 Route::delete('/cart/{product}', 'CartController@destroy')->name('cart.destroy');
+
+Route::patch('/cart/{product}', 'CartController@update')->name('cart.update');
+
+
+
+
+
+
+
+
+
+
 Route::post('/cart/switchToSaveForLater/{product}', 'CartController@switchToSaveForLater')->name('cart.switchToSaveForLater');
 
 Route::delete('/saveForLater/{product}', 'SaveForLaterController@destroy')->name('saveForLater.destroy');

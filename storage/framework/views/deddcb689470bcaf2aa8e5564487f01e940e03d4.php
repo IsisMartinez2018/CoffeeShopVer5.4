@@ -26,6 +26,22 @@
         dt { font-style: italic; font-weight: bold; font-size: 18px; text-align: right; padding: 0 26px 0 0; width: 150px; float: left; height: 100px; border-right: 1px solid #999;  }
         dd { width: 600px; float: right; }
         dd.clear { float: none; margin: 0; height: 15px; }
+        .cart-count {
+  display: inline-block;
+  background: #FFD94D;
+  color: #212121;
+  line-height: 0;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.cart-count span {
+  display: inline-block;
+  padding-top: 50%;
+  padding-bottom: 50%;
+  margin-left: 6px;
+  margin-right: 6px;
+}
         
      </style>
 
@@ -101,19 +117,23 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo e(url('/gallery')); ?>">Gallery&nbsp;</a>
+                        <a class="nav-link" href="<?php echo e(url('/gallery')); ?>">Gallery&nbsp;&nbsp;</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo e(url('/menu')); ?>">Menu&nbsp;</a>
+                        <a class="nav-link" href="<?php echo e(url('/menu')); ?>">&nbsp;Menu&nbsp;</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo e(url('/contactus')); ?>">Contact Us&nbsp;</a>
+                        <a class="nav-link" href="<?php echo e(url('/contactus')); ?>">&nbsp;&nbsp;Contact Us</a>
                     </li>
                     <br>
                     <li class="nav-item" style="margin-left: 25px">
                         <a class="nav-link" href="<?php echo e(route('orders.create')); ?>">Pedidos&nbsp;</a>
                     </li>
+                    <li class="nav-item" style="margin-left: 25px">
+                        <a class="nav-link" href="<?php echo e(route('shop.index')); ?>">Shop&nbsp;&nbsp;</a>
+                    </li>
                     
+
 
                     <?php if(Auth::guard('web')->check()): ?>
 <li class="nav-item dropdown mr-lg-4">
@@ -130,6 +150,7 @@
     <img src="<?php echo e(asset ('/images/'.$profile->avatar)); ?>" style="top: 130px; left: 650px;height: 30px; width: 30px; border:none; border-radius: 15px;"></a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="<?php echo e(url('/profile')); ?>">Perfil</a>
+                            <a class="dropdown-item" href="<?php echo e(route('cart.index')); ?>">Cart<span class="cart-count"><span><?php echo e(Cart::instance('default')->count()); ?></span></span></a>
                             
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
@@ -179,10 +200,10 @@
                      </div>
                     <?php endif; ?>
                     <?php if( Session::has( 'message' )): ?>
-                      <div class="alert alert-warning" style="width: 1250px; margin-left: -400px; margin-top: -20px;"> <img src="<?php echo e(url('svg/warning.svg')); ?>" style="width: 20px; height: 23px">
+                      <div class="alert alert-warning" style="width: 700px; margin-left: -10px; margin-top: -20px;"> <img src="<?php echo e(url('svg/warning.svg')); ?>" style="width: 20px; height: 23px">
                     <?php echo e(Session::get( 'message' )); ?>
 
-                     </div>
+                     </div><br>
 
                       <?php endif; ?>
 
@@ -327,7 +348,7 @@
     transition-duration: 0.4s;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 ">&nbsp;&nbsp;Editar&nbsp;&nbsp;</p></button>
 
-    <img src="<?php echo e(URL::asset("/images/editorial-design.png")); ?>" style="margin-top: -1220px; margin-left: 120px; height: 30px; width: 30px; border:none;"></a>
+    <img src="<?php echo e(URL::asset("/images/editorial-design.png")); ?>" style="margin-top: -1080px; margin-left: 120px; height: 30px; width: 30px; border:none;"></a>
     
 
 </div>

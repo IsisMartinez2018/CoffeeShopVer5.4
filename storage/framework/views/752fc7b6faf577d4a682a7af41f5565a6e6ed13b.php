@@ -19,7 +19,7 @@
 	</script>
 	
 	<!--// Meta tag Keywords -->
-	<link rel="stylesheet" href="{{ asset('css/algolia.css') }}">
+	<link rel="stylesheet" href="<?php echo e(asset('css/algolia.css')); ?>">
 	<!-- Custom-Files -->
 	<link rel="stylesheet" href="css/bootstrap(2).css">
 	<!-- Bootstrap-Core-CSS -->
@@ -27,7 +27,7 @@
 	<!-- Banner CSS -->
 	<link rel="stylesheet" href="css/style(2).css" type="text/css" media="all" />
 	<!-- Style-CSS -->
-	<link rel="stylesheet" href="{{ asset('css/fontawesome-all.css') }}">
+	<link rel="stylesheet" href="<?php echo e(asset('css/fontawesome-all.css')); ?>">
 	<!-- Font-Awesome-Icons-CSS -->
 	<!-- //Custom-Files -->
 
@@ -148,12 +148,12 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="{{ url('/homevista')}}">Home
+						<a class="nav-link" href="<?php echo e(url('/homevista')); ?>">Home
 							<span class="sr-only">(current)</span>
 						</a>
 					</li>
 					<li class="nav-item mx-lg-4">
-						<a class="nav-link" href="{{ url('/aboutus')}}">About Us</a>
+						<a class="nav-link" href="<?php echo e(url('/aboutus')); ?>">About Us</a>
 					</li>
 					<li class="nav-item dropdown mr-lg-4">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -161,64 +161,65 @@
 							Pages
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="{{url('/menu')}}">Menu</a>
-							<a class="dropdown-item scroll" href="{{url('#services')}}">Services</a>
+							<a class="dropdown-item" href="<?php echo e(url('/menu')); ?>">Menu</a>
+							<a class="dropdown-item scroll" href="<?php echo e(url('#services')); ?>">Services</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="{{url('/aboutus')}}">Team</a>
+							<a class="dropdown-item" href="<?php echo e(url('/aboutus')); ?>">Team</a>
 						</div>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{url('/gallery')}}">Gallery</a>
+						<a class="nav-link" href="<?php echo e(url('/gallery')); ?>">Gallery</a>
 					</li>
 					<li class="nav-item mx-lg-4">
-						<a class="nav-link" href="{{url('/menu')}}">Menu</a>
+						<a class="nav-link" href="<?php echo e(url('/menu')); ?>">Menu</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{url('/contactus')}}">Contact Us</a>
+						<a class="nav-link" href="<?php echo e(url('/contactus')); ?>">Contact Us</a>
 					</li>
 					<br>
 					<li class="nav-item" style="margin-left: 25px">
-						<a class="nav-link" href="{{ route('orders.create') }}">Pedidos</a>
+						<a class="nav-link" href="<?php echo e(route('orders.create')); ?>">Pedidos</a>
 					</li>
           <li class="nav-item" style="margin-left: 25px">
-            <a class="nav-link" href="{{ route('shop.index') }}">Shop&nbsp;</a>
+            <a class="nav-link" href="<?php echo e(route('shop.index')); ?>">Shop&nbsp;</a>
           </li>
 					
-					@if (Auth::guard('web')->check())
+					<?php if(Auth::guard('web')->check()): ?>
 <li class="nav-item dropdown mr-lg-4">
 
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
-                             Bienvenido, usuario &nbsp;{{ Auth::user()->name }}
+                             Bienvenido, usuario &nbsp;<?php echo e(Auth::user()->name); ?>
 
-                        <img src="{{ URL::asset("/images/cup.png") }}" style="top: 130px; left: 650px;height: 30px; width: 30px; border:none;"></a>
+
+                        <img src="<?php echo e(URL::asset("/images/cup.png")); ?>" style="top: 130px; left: 650px;height: 30px; width: 30px; border:none;"></a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{url('/profile')}}">Perfil</a>
-                            <a class="dropdown-item" href="{{ route('cart.index') }}">Cart<span class="cart-count">
-                              @if (Cart::instance('default')->count() > 0)
+                            <a class="dropdown-item" href="<?php echo e(url('/profile')); ?>">Perfil</a>
+                            <a class="dropdown-item" href="<?php echo e(route('cart.index')); ?>">Cart<span class="cart-count">
+                              <?php if(Cart::instance('default')->count() > 0): ?>
 
-                              <span>{{ Cart::instance('default')->count()}}</span></span></a>
-                            @endif
+                              <span><?php echo e(Cart::instance('default')->count()); ?></span></span></a>
+                            <?php endif; ?>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">Cerrar Sesion</a><form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                     document.getElementById('logout-form').submit();">Cerrar Sesion</a><form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+                                       <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
                                     </form>
                         </div>
                 </li>
 
-@else
+<?php else: ?>
 
 					<li class="nav-item" style="margin-left: 25px">
-						<a class="nav-link" href="{{ route('login')}}">Login</a>
+						<a class="nav-link" href="<?php echo e(route('login')); ?>">Login</a>
 					</li>
 					<br>
 					<li class="nav-item" style="margin-left: 25px">
-						<a class="nav-link" href="{{ route('register')}}">Registrate</a>
+						<a class="nav-link" href="<?php echo e(route('register')); ?>">Registrate</a>
 					</li>
 
-					@endif
+					<?php endif; ?>
 
 				</ul>
 			</div>
@@ -244,7 +245,7 @@
        <p>A confirmation email was sent</p>
       <br><br><br>
        <div>
-           <a href="{{ url('/homevista') }}" class="button">Home Page</a>
+           <a href="<?php echo e(url('/')); ?>" class="button">Home Page</a>
       
 </div></div>
 
@@ -269,14 +270,14 @@
         <div class="container">
             <h2>You might also like...</h2>
             <div class="might-like-grid">
-                @foreach ($mightAlsoLike as $product)
-                <div class="might-like-product"><a href="{{ route('shop.show', $product->slug)}}">
-                    <img src="{{ asset('images/products/'.$product->slug.'.jpg') }}" alt="product">
-                    <div class="might-like-product-name">{{ $product->name}}</div>
-                    <div class="might-like-product-price">{{ $product->presentPrice() }}</div>
+                <?php $__currentLoopData = $mightAlsoLike; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div class="might-like-product"><a href="<?php echo e(route('shop.show', $product->slug)); ?>">
+                    <img src="<?php echo e(asset('images/products/'.$product->slug.'.jpg')); ?>" alt="product">
+                    <div class="might-like-product-name"><?php echo e($product->name); ?></div>
+                    <div class="might-like-product-price"><?php echo e($product->presentPrice()); ?></div>
                     </a>
                 </div>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
 </div>
@@ -390,7 +391,7 @@
    <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
     <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
     <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
-    <script src="{{ asset('js/algolia.js') }}"></script>
+    <script src="<?php echo e(asset('js/algolia.js')); ?>"></script>
 
 </body>
 </html>

@@ -25,7 +25,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		}
 	</script>
 	<!--// Meta tag Keywords -->
+<style type="text/css">
+	.cart-count {
+  display: inline-block;
+  background: #FFD94D;
+  color: #212121;
+  line-height: 0;
+  border-radius: 50%;
+  font-size: 14px;
+}
 
+.cart-count span {
+  display: inline-block;
+  padding-top: 50%;
+  padding-bottom: 50%;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+</style>
 	<!-- Custom-Files -->
 	<link rel="stylesheet" href="css/bootstrap(2).css">
 	<!-- Bootstrap-Core-CSS -->
@@ -93,9 +110,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</li>
 					<br>
 					<li class="nav-item" style="margin-left: 25px">
-						<a class="nav-link" href="<?php echo e(route('orders.create')); ?>">Pedidos&nbsp;</a>
+						<a class="nav-link" href="<?php echo e(route('orders.create')); ?>">Pedidos</a>
 					</li>
-					
+					<li class="nav-item" style="margin-left: 25px">
+						<a class="nav-link" href="<?php echo e(route('shop.index')); ?>">Shop&nbsp;</a>
+					</li>
 
 					<?php if(Auth::guard('web')->check()): ?>
 <li class="nav-item dropdown mr-lg-4">
@@ -108,6 +127,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <img src="<?php echo e(URL::asset("/images/cup.png")); ?>" style="top: 130px; left: 650px;height: 30px; width: 30px; border:none;"></a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/IM/public/login">Perfil</a>
+                            <a class="dropdown-item" href="<?php echo e(route('cart.index')); ?>">Cart<span class="cart-count">
+                              <?php if(Cart::instance('default')->count() > 0): ?>
+
+                              <span><?php echo e(Cart::instance('default')->count()); ?></span></span></a>
+                            <?php endif; ?>
                             
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"

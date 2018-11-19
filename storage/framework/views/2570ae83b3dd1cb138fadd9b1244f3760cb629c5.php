@@ -19,7 +19,7 @@
 	</script>
 	
 	<!--// Meta tag Keywords -->
-	<link rel="stylesheet" href="{{ asset('css/algolia.css') }}">
+	<link rel="stylesheet" href="<?php echo e(asset('css/algolia.css')); ?>">
 	<!-- Custom-Files -->
 	<link rel="stylesheet" href="css/bootstrap(2).css">
 	<!-- Bootstrap-Core-CSS -->
@@ -27,7 +27,7 @@
 	<!-- Banner CSS -->
 	<link rel="stylesheet" href="css/style(2).css" type="text/css" media="all" />
 	<!-- Style-CSS -->
-	<link rel="stylesheet" href="{{ asset('css/fontawesome-all.css') }}">
+	<link rel="stylesheet" href="<?php echo e(asset('css/fontawesome-all.css')); ?>">
 	<!-- Font-Awesome-Icons-CSS -->
 	<!-- //Custom-Files -->
 
@@ -314,12 +314,12 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="{{ url('/homevista')}}">Home
+						<a class="nav-link" href="<?php echo e(url('/homevista')); ?>">Home
 							<span class="sr-only">(current)</span>
 						</a>
 					</li>
 					<li class="nav-item mx-lg-4">
-						<a class="nav-link" href="{{ url('/aboutus')}}">About Us</a>
+						<a class="nav-link" href="<?php echo e(url('/aboutus')); ?>">About Us</a>
 					</li>
 					<li class="nav-item dropdown mr-lg-4">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -327,64 +327,65 @@
 							Pages
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="{{url('/menu')}}">Menu</a>
-							<a class="dropdown-item scroll" href="{{url('#services')}}">Services</a>
+							<a class="dropdown-item" href="<?php echo e(url('/menu')); ?>">Menu</a>
+							<a class="dropdown-item scroll" href="<?php echo e(url('#services')); ?>">Services</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="{{url('/aboutus')}}">Team</a>
+							<a class="dropdown-item" href="<?php echo e(url('/aboutus')); ?>">Team</a>
 						</div>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{url('/gallery')}}">Gallery</a>
+						<a class="nav-link" href="<?php echo e(url('/gallery')); ?>">Gallery</a>
 					</li>
 					<li class="nav-item mx-lg-4">
-						<a class="nav-link" href="{{url('/menu')}}">Menu</a>
+						<a class="nav-link" href="<?php echo e(url('/menu')); ?>">Menu</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{url('/contactus')}}">Contact Us</a>
+						<a class="nav-link" href="<?php echo e(url('/contactus')); ?>">Contact Us</a>
 					</li>
 					<br>
 					<li class="nav-item" style="margin-left: 25px">
-						<a class="nav-link" href="{{ route('orders.create') }}">Pedidos</a>
+						<a class="nav-link" href="<?php echo e(route('orders.create')); ?>">Pedidos</a>
 					</li>
           <li class="nav-item" style="margin-left: 25px">
-            <a class="nav-link" href="{{ route('shop.index') }}">Shop&nbsp;</a>
+            <a class="nav-link" href="<?php echo e(route('shop.index')); ?>">Shop&nbsp;</a>
           </li>
 					
-					@if (Auth::guard('web')->check())
+					<?php if(Auth::guard('web')->check()): ?>
 <li class="nav-item dropdown mr-lg-4">
 
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
-                             Bienvenido, usuario &nbsp;{{ Auth::user()->name }}
+                             Bienvenido, usuario &nbsp;<?php echo e(Auth::user()->name); ?>
 
-                        <img src="{{ URL::asset("/images/cup.png") }}" style="top: 130px; left: 650px;height: 30px; width: 30px; border:none;"></a>
+
+                        <img src="<?php echo e(URL::asset("/images/cup.png")); ?>" style="top: 130px; left: 650px;height: 30px; width: 30px; border:none;"></a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{url('/profile')}}">Perfil</a>
-                            <a class="dropdown-item" href="{{ route('cart.index') }}">Cart<span class="cart-count">
-                              @if (Cart::instance('default')->count() > 0)
+                            <a class="dropdown-item" href="<?php echo e(url('/profile')); ?>">Perfil</a>
+                            <a class="dropdown-item" href="<?php echo e(route('cart.index')); ?>">Cart<span class="cart-count">
+                              <?php if(Cart::instance('default')->count() > 0): ?>
 
-                              <span>{{ Cart::instance('default')->count()}}</span></span></a>
-                            @endif
+                              <span><?php echo e(Cart::instance('default')->count()); ?></span></span></a>
+                            <?php endif; ?>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">Cerrar Sesion</a><form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                     document.getElementById('logout-form').submit();">Cerrar Sesion</a><form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+                                       <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
                                     </form>
                         </div>
                 </li>
 
-@else
+<?php else: ?>
 
 					<li class="nav-item" style="margin-left: 25px">
-						<a class="nav-link" href="{{ route('login')}}">Login</a>
+						<a class="nav-link" href="<?php echo e(route('login')); ?>">Login</a>
 					</li>
 					<br>
 					<li class="nav-item" style="margin-left: 25px">
-						<a class="nav-link" href="{{ route('register')}}">Registrate</a>
+						<a class="nav-link" href="<?php echo e(route('register')); ?>">Registrate</a>
 					</li>
 
-					@endif
+					<?php endif; ?>
 
 				</ul>
 			</div>
@@ -408,29 +409,30 @@
 <!--empieza la shop-->
  <div class="cart-section container">
         <div>
-@if (session()->has('success_message'))
+<?php if(session()->has('success_message')): ?>
             <div class="spacer"></div>
             <div class="alert alert-success">
-                {{ session()->get('success_message') }}
-            </div><br>
-        @endif
+                <?php echo e(session()->get('success_message')); ?>
 
-        @if(count($errors) > 0)
+            </div><br>
+        <?php endif; ?>
+
+        <?php if(count($errors) > 0): ?>
             <div class="spacer"></div>
             <div class="alert alert-danger">
                 <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{!! $error !!}</li>
-                    @endforeach
+                    <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <li><?php echo $error; ?></li>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </ul>
             </div>
-        @endif
+        <?php endif; ?>
 
-@if (Cart::count() > 0)
+<?php if(Cart::count() > 0): ?>
 
-            <h2> {{ Cart::count() }} item(s) in Shopping Cart</h2>
+            <h2> <?php echo e(Cart::count()); ?> item(s) in Shopping Cart</h2>
              <div class="cart-table">
-              @foreach (Cart::content() as $item)
+              <?php $__currentLoopData = Cart::content(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
               
 
@@ -438,18 +440,20 @@
 
                 <div class="cart-table-row">
                     <div class="cart-table-row-left">
-                        <a href="{{route ('shop.show', $item->model->slug) }}"><img src="{{ asset('/images/products/'.$item->model->slug.'.jpg')}}" alt="item" class="cart-table-img"></a>
+                        <a href="<?php echo e(route ('shop.show', $item->model->slug)); ?>"><img src="<?php echo e(asset('/images/products/'.$item->model->slug.'.jpg')); ?>" alt="item" class="cart-table-img"></a>
                         <div class="cart-item-details">
-                            <div class="cart-table-item"><a href="{{route ('shop.show', $item->model->slug) }}">{{$item->model->name}}</a></div>
-                            <div class="cart-table-description">{{$item->model->details}}</div>
+                            <div class="cart-table-item"><a href="<?php echo e(route ('shop.show', $item->model->slug)); ?>"><?php echo e($item->model->name); ?></a></div>
+                            <div class="cart-table-description"><?php echo e($item->model->details); ?></div>
                         </div>
                     </div>
                     <div class="cart-table-row-right">
                         <div class="cart-table-actions">
                             
-                          <form action="{{route('cart.destroy', $item->rowId)}}" method="POST">
-                            {{ csrf_field()}}
-                            {{method_field('DELETE') }}
+                          <form action="<?php echo e(route('cart.destroy', $item->rowId)); ?>" method="POST">
+                            <?php echo e(csrf_field()); ?>
+
+                            <?php echo e(method_field('DELETE')); ?>
+
                             <button type="submit" class="cart-options">Remove</button>
 
                           </form>
@@ -458,8 +462,9 @@
 
                              <br>
                            
- <form action="{{route('cart.switchToSaveForLater', $item->rowId)}}" method="POST">
-                            {{ csrf_field()}}
+ <form action="<?php echo e(route('cart.switchToSaveForLater', $item->rowId)); ?>" method="POST">
+                            <?php echo e(csrf_field()); ?>
+
                            
                             <button type="submit" class="cart-options">Save for Later</button>
 
@@ -470,22 +475,18 @@
 
                         </div>
                         <div>
-                             <select class="quantity" data-id="{{ $item->rowId }}">
-                                @for ($i = 1; $i < 5 + 1 ; $i++)
-                                    <option {{ $item->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
-                                @endfor
-                                {{-- <option {{ $item->qty == 1 ? 'selected' : '' }}>1</option>
-                                <option {{ $item->qty == 2 ? 'selected' : '' }}>2</option>
-                                <option {{ $item->qty == 3 ? 'selected' : '' }}>3</option>
-                                <option {{ $item->qty == 4 ? 'selected' : '' }}>4</option>
-                                <option {{ $item->qty == 5 ? 'selected' : '' }}>5</option> --}}
+                             <select class="quantity" data-id="<?php echo e($item->rowId); ?>">
+                                <?php for($i = 1; $i < 5 + 1 ; $i++): ?>
+                                    <option <?php echo e($item->qty == $i ? 'selected' : ''); ?>><?php echo e($i); ?></option>
+                                <?php endfor; ?>
+                                
                             </select>
                         </div>
-                        <div>{{ $item->model->presentPrice()}}</div>
+                        <div><?php echo e($item->model->presentPrice()); ?></div>
                     </div>
                 </div> <!-- end cart-table-row -->
 
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                  
              </div> <!-- end cart-table -->
               <a href="#" class="have-code">Have a Code?</a>
@@ -507,82 +508,86 @@
                         <span class="cart-totals-total">Total</span>
                     </div>
                     <div class="cart-totals-subtotal">
-                        {{ presentPrice(Cart::subtotal()) }}  <br>
-                        {{ presentPrice(Cart::tax()) }} <br>
-                        <span class="cart-totals-total">{{ presentPrice(Cart::total()) }}</span>
+                        <?php echo e(presentPrice(Cart::subtotal())); ?>  <br>
+                        <?php echo e(presentPrice(Cart::tax())); ?> <br>
+                        <span class="cart-totals-total"><?php echo e(presentPrice(Cart::total())); ?></span>
                     </div>
                 </div>
             </div> <!-- end cart-totals -->
              <div class="cart-buttons">
-                <a href="{{ route ('shop.index')}}" class="button">Continue Shopping</a>
-                <a href="{{ route ('checkout.index')}}" class="button-primary">Proceed to Checkout</a>
+                <a href="<?php echo e(route ('shop.index')); ?>" class="button">Continue Shopping</a>
+                <a href="<?php echo e(route ('checkout.index')); ?>" class="button-primary">Proceed to Checkout</a>
             </div>
 
-@else
+<?php else: ?>
 <h3>No items in cart!</h3>
 <br><br><br><br><br><br>
-<a href="{{route ('shop.index')}}" class="button">Continue shopping</a>
+<a href="<?php echo e(route ('shop.index')); ?>" class="button">Continue shopping</a>
 <br><br><br>
 
-            @endif
+            <?php endif; ?>
 
-@if (Cart::instance('saveForLater')->count() > 0)
+<?php if(Cart::instance('saveForLater')->count() > 0): ?>
 
-            <h2> {{ Cart::instance('saveForLater')->count() }} item(s) save for later</h2>
+            <h2> <?php echo e(Cart::instance('saveForLater')->count()); ?> item(s) save for later</h2>
  
              <div class="saved-for-later cart-table">
 
-              @foreach (Cart::instance('saveForLater')->content() as $item)
+              <?php $__currentLoopData = Cart::instance('saveForLater')->content(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="cart-table-row">
                     <div class="cart-table-row-left">
-                        <a href="{{route ('shop.show', $item->model->slug) }}">
-                          <img src="{{ asset('/images/products/'.$item->model->slug.'.jpg')}}" alt="item" class="cart-table-img"></a>
+                        <a href="<?php echo e(route ('shop.show', $item->model->slug)); ?>">
+                          <img src="<?php echo e(asset('/images/products/'.$item->model->slug.'.jpg')); ?>" alt="item" class="cart-table-img"></a>
                         <div class="cart-item-details">
-                            <div class="cart-table-item"><a href="{{route ('shop.show', $item->model->slug) }}">{{$item->model->name}}</a></div>
-                            <div class="cart-table-description">{{$item->model->details}}</div>
+                            <div class="cart-table-item"><a href="<?php echo e(route ('shop.show', $item->model->slug)); ?>"><?php echo e($item->model->name); ?></a></div>
+                            <div class="cart-table-description"><?php echo e($item->model->details); ?></div>
                         </div>
                     </div>
                     <div class="cart-table-row-right">
                         <div class="cart-table-actions">
-                           <form action="{{ route('saveForLater.destroy', $item->rowId) }}" method="POST">
-                                {{ csrf_field() }}
-                                {{ method_field('DELETE') }}
+                           <form action="<?php echo e(route('saveForLater.destroy', $item->rowId)); ?>" method="POST">
+                                <?php echo e(csrf_field()); ?>
+
+                                <?php echo e(method_field('DELETE')); ?>
+
                         <button type="submit" class="cart-options">Remove</button>
                             </form>
                             <br>
 
 
-                             <form action="{{ route('saveForLater.switchToCart', $item->rowId) }}" method="POST">
-                                {{ csrf_field() }}
+                             <form action="<?php echo e(route('saveForLater.switchToCart', $item->rowId)); ?>" method="POST">
+                                <?php echo e(csrf_field()); ?>
+
                                  <button type="submit" class="cart-options">Move to Cart</button>
                             </form>
                           
                         </div> 
-                         <div>{{$item->model->presentPrice() }}
+                         <div><?php echo e($item->model->presentPrice()); ?>
+
                          </div>
                     
                 </div> <!-- end cart-table-row -->
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                  </div> <!-- end saved-for-later -->
 
 
-             @else
+             <?php else: ?>
              <h3>No tienes items guardados para despues</h3>
-             @endif
+             <?php endif; ?>
          </div>
      </div> <!-- end cart-section -->
  <div class="might-like-section">
         <div class="container">
             <h2>You might also like...</h2>
             <div class="might-like-grid">
-                @foreach ($mightAlsoLike as $product)
-                <div class="might-like-product"><a href="{{ route('shop.show', $product->slug)}}">
-                    <img src="{{ asset('images/products/'.$product->slug.'.jpg') }}" alt="product">
-                    <div class="might-like-product-name">{{ $product->name}}</div>
-                    <div class="might-like-product-price">{{ $product->presentPrice() }}</div>
+                <?php $__currentLoopData = $mightAlsoLike; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div class="might-like-product"><a href="<?php echo e(route('shop.show', $product->slug)); ?>">
+                    <img src="<?php echo e(asset('images/products/'.$product->slug.'.jpg')); ?>" alt="product">
+                    <div class="might-like-product-name"><?php echo e($product->name); ?></div>
+                    <div class="might-like-product-price"><?php echo e($product->presentPrice()); ?></div>
                     </a>
                 </div>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
 </div>
@@ -696,10 +701,10 @@
 	 <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
     <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
     <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
-    <script src="{{ asset('js/algolia.js') }}"></script>
+    <script src="<?php echo e(asset('js/algolia.js')); ?>"></script>
 
 
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="<?php echo e(asset('js/app.js')); ?>"></script>
     <script>
         (function(){
             const classname = document.querySelectorAll('.quantity');
@@ -713,12 +718,12 @@
                     })
                     .then(function (response) {
                         //console.log(response);
-                        window.location.href = '{{ route('cart.index') }}'
+                        window.location.href = '<?php echo e(route('cart.index')); ?>'
 
                     })
                     .catch(function (error) {
                         console.log(error);
-                        window.location.href = '{{ route('cart.index') }}'
+                        window.location.href = '<?php echo e(route('cart.index')); ?>'
                     });
                 });
             });

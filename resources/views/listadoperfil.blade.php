@@ -198,9 +198,9 @@
                      </div>
                     @endif
                     @if( Session::has( 'message' ))
-                      <div class="alert alert-warning" style="width: 1250px; margin-left: -400px; margin-top: -20px;"> <img src="{{ url('svg/warning.svg') }}" style="width: 20px; height: 23px">
+                      <div class="alert alert-warning" style="width: 700px; margin-left: -10px; margin-top: -20px;"> <img src="{{ url('svg/warning.svg') }}" style="width: 20px; height: 23px">
                     {{ Session::get( 'message' ) }}
-                     </div>
+                     </div><br>
 
                       @endif
 
@@ -343,7 +343,7 @@
     transition-duration: 0.4s;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 ">&nbsp;&nbsp;Editar&nbsp;&nbsp;</p></button>
 
-    <img src="{{ URL::asset("/images/editorial-design.png") }}" style="margin-top: -1220px; margin-left: 120px; height: 30px; width: 30px; border:none;"></a>
+    <img src="{{ URL::asset("/images/editorial-design.png") }}" style="margin-top: -1080px; margin-left: 120px; height: 30px; width: 30px; border:none;"></a>
     
 
 </div>

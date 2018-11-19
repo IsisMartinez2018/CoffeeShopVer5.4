@@ -19,13 +19,29 @@
         h2 span { position: absolute; bottom: 0; right: 0; font-style: italic; font-family: Georgia, Serif; font-size: 16px; color: #999; font-weight: normal; }
         p { margin: 0 0 16px 0; }
         a { color: #999; text-decoration: none; }
-        a:hover { border-bottom-style: solid; color: black; }
+        a:hover {  }
         ul { margin: 0 0 32px 17px; }
         #objective { width: 500px; float: left; }
         #objective p { font-family: Georgia, Serif; font-style: italic; color: #666; }
         dt { font-style: italic; font-weight: bold; font-size: 18px; text-align: right; padding: 0 26px 0 0; width: 150px; float: left; height: 100px; border-right: 1px solid #999;  }
         dd { width: 600px; float: right; }
         dd.clear { float: none; margin: 0; height: 15px; }
+        .cart-count {
+  display: inline-block;
+  background: #FFD94D;
+  color: #212121;
+  line-height: 0;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.cart-count span {
+  display: inline-block;
+  padding-top: 50%;
+  padding-bottom: 50%;
+  margin-left: 6px;
+  margin-right: 6px;
+}
      </style>
 
 <script>
@@ -120,6 +136,11 @@
                         <img src="<?php echo e(URL::asset("/images/cup.png")); ?>" style="top: 130px; left: 650px;height: 30px; width: 30px; border:none;"></a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="<?php echo e(url('/profile')); ?>">Perfil</a>
+                            <a class="dropdown-item" href="<?php echo e(route('cart.index')); ?>">Cart<span class="cart-count">
+                              <?php if(Cart::instance('default')->count() > 0): ?>
+
+                              <span><?php echo e(Cart::instance('default')->count()); ?></span></span></a>
+                            <?php endif; ?>
                             
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
@@ -214,7 +235,7 @@
             
             <dt>Redes sociales</dt>
             <dd>
-                <h2>Facebook <img src="<?php echo e(url('svg/facebook.svg')); ?>" style="width: 20px; height: 23px"></h2>
+                <h2>Facebook <img src="<?php echo e(url('svg/facebook.svg')); ?>" style="width: 20px; height: 23px;"></h2>
                 /<input type="text" name="facebook" style="padding: 2px 7px;  border: 2px solid #ccc; border-radius: 4px; background-color: #f8f8f8;">
                 <h2>Twitter <img src="<?php echo e(url('svg/twitter.svg')); ?>" style="width: 20px; height: 23px"></h2>
                 @<input type="text" name="twitter" style="padding: 2px 7px; box-sizing: border-box; border: 2px solid #ccc; border-radius: 4px; background-color: #f8f8f8;">

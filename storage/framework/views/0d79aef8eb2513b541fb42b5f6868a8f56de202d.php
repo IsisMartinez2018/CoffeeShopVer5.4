@@ -24,6 +24,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			window.scrollTo(0, 1);
 		}
 	</script>
+	<style type="text/css">
+		.cart-count {
+  display: inline-block;
+  background: #FFD94D;
+  color: #212121;
+  line-height: 0;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.cart-count span {
+  display: inline-block;
+  padding-top: 50%;
+  padding-bottom: 50%;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+	</style>
 	<!--// Meta tag Keywords -->
 
 	<!-- Custom-Files -->
@@ -94,9 +112,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</li>
 					<br>
 					<li class="nav-item" style="margin-left: 25px">
-						<a class="nav-link" href="<?php echo e(route('orders.create')); ?>">Pedidos&nbsp;</a>
+						<a class="nav-link" href="<?php echo e(route('orders.create')); ?>">Pedidos</a>
+					</li>
+					<li class="nav-item" style="margin-left: 25px">
+						<a class="nav-link" href="<?php echo e(route('shop.index')); ?>">Shop&nbsp;</a>
 					</li>
 					
+
+
+
 					<?php if(Auth::guard('web')->check()): ?>
 <li class="nav-item dropdown mr-lg-4">
 
@@ -109,6 +133,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="<?php echo e(url('/profile')); ?>">Perfil</a>
                             
+						<a class="dropdown-item" href="<?php echo e(route('cart.index')); ?>">Cart<span class="cart-count">
+                              <?php if(Cart::instance('default')->count() > 0): ?>
+
+                              <span><?php echo e(Cart::instance('default')->count()); ?></span></span></a>
+                            <?php endif; ?>
+					
+
+
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
                                        onclick="event.preventDefault();

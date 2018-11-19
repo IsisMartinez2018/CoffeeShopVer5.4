@@ -19,13 +19,13 @@
 	</script>
 	<!--// Meta tag Keywords -->
 	<!-- Custom-Files -->
-	<link rel="stylesheet" href="{{ asset('css/bootstrap(2).css')}}">
+	<link rel="stylesheet" href="<?php echo e(asset('css/bootstrap(2).css')); ?>">
 	<!-- Bootstrap-Core-CSS -->
-	<link rel="stylesheet" href="{{ asset('css/ken-burns.css')}}" type="text/css" media="all" />
+	<link rel="stylesheet" href="<?php echo e(asset('css/ken-burns.css')); ?>" type="text/css" media="all" />
 	<!-- Banner CSS -->
-	<link rel="stylesheet" href="{{ asset('css/style(2).css')}}" type="text/css" media="all" />
+	<link rel="stylesheet" href="<?php echo e(asset('css/style(2).css')); ?>" type="text/css" media="all" />
 	<!-- Style-CSS -->
-	<link rel="stylesheet" href="{{ asset('css/fontawesome-all.css') }}">
+	<link rel="stylesheet" href="<?php echo e(asset('css/fontawesome-all.css')); ?>">
 	<!-- Font-Awesome-Icons-CSS -->
 	<!-- //Custom-Files -->
 
@@ -326,12 +326,12 @@ h1.stylish-heading:after {
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="{{ url('/homevista')}}">Home
+						<a class="nav-link" href="<?php echo e(url('/homevista')); ?>">Home
 							<span class="sr-only">(current)</span>
 						</a>
 					</li>
 					<li class="nav-item mx-lg-4">
-						<a class="nav-link" href="{{ url('/aboutus')}}">About Us</a>
+						<a class="nav-link" href="<?php echo e(url('/aboutus')); ?>">About Us</a>
 					</li>
 					<li class="nav-item dropdown mr-lg-4">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -339,66 +339,67 @@ h1.stylish-heading:after {
 							Pages
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="{{url('/menu')}}">Menu</a>
-							<a class="dropdown-item scroll" href="{{url('#services')}}">Services</a>
+							<a class="dropdown-item" href="<?php echo e(url('/menu')); ?>">Menu</a>
+							<a class="dropdown-item scroll" href="<?php echo e(url('#services')); ?>">Services</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="{{url('/aboutus')}}">Team</a>
+							<a class="dropdown-item" href="<?php echo e(url('/aboutus')); ?>">Team</a>
 						</div>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{url('/gallery')}}">Gallery</a>
+						<a class="nav-link" href="<?php echo e(url('/gallery')); ?>">Gallery</a>
 					</li>
 					<li class="nav-item mx-lg-4">
-						<a class="nav-link" href="{{url('/menu')}}">Menu</a>
+						<a class="nav-link" href="<?php echo e(url('/menu')); ?>">Menu</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{url('/contactus')}}">Contact Us</a>
+						<a class="nav-link" href="<?php echo e(url('/contactus')); ?>">Contact Us</a>
 					</li>
 					<br>
 					<li class="nav-item" style="margin-left: 25px">
-						<a class="nav-link" href="{{ route('orders.create') }}">Pedidos</a>
+						<a class="nav-link" href="<?php echo e(route('orders.create')); ?>">Pedidos</a>
 					</li>
 					<li class="nav-item" style="margin-left: 25px">
-						<a class="nav-link" href="{{ route('shop.index') }}">Shop&nbsp;</a>
+						<a class="nav-link" href="<?php echo e(route('shop.index')); ?>">Shop&nbsp;</a>
 					</li>
 					
 
-					@if (Auth::guard('web')->check())
+					<?php if(Auth::guard('web')->check()): ?>
 <li class="nav-item dropdown mr-lg-4">
 
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
-                             Bienvenido, usuario &nbsp;{{ Auth::user()->name }}
+                             Bienvenido, usuario &nbsp;<?php echo e(Auth::user()->name); ?>
 
-                        <img src="{{ URL::asset("/images/cup.png") }}" style="top: 130px; left: 650px;height: 30px; width: 30px; border:none;"></a>
+
+                        <img src="<?php echo e(URL::asset("/images/cup.png")); ?>" style="top: 130px; left: 650px;height: 30px; width: 30px; border:none;"></a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{url('/profile')}}">Perfil</a>
-                            <a class="dropdown-item" href="{{ route('cart.index') }}">Cart<span class="cart-count">
-                              @if (Cart::instance('default')->count() > 0)
+                            <a class="dropdown-item" href="<?php echo e(url('/profile')); ?>">Perfil</a>
+                            <a class="dropdown-item" href="<?php echo e(route('cart.index')); ?>">Cart<span class="cart-count">
+                              <?php if(Cart::instance('default')->count() > 0): ?>
 
-                              <span>{{ Cart::instance('default')->count()}}</span></span></a>
-                            @endif
+                              <span><?php echo e(Cart::instance('default')->count()); ?></span></span></a>
+                            <?php endif; ?>
                             
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">Cerrar Sesion</a><form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                     document.getElementById('logout-form').submit();">Cerrar Sesion</a><form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+                                       <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
                                     </form>
                         </div>
                 </li>
 
-@else
+<?php else: ?>
 
 					<li class="nav-item" style="margin-left: 25px">
-						<a class="nav-link" href="{{ route('login')}}">Login</a>
+						<a class="nav-link" href="<?php echo e(route('login')); ?>">Login</a>
 					</li>
 					<br>
 					<li class="nav-item" style="margin-left: 25px">
-						<a class="nav-link" href="{{ route('register')}}">Registrate</a>
+						<a class="nav-link" href="<?php echo e(route('register')); ?>">Registrate</a>
 					</li>
 
-					@endif
+					<?php endif; ?>
 
 				</ul>
 			</div>
@@ -424,9 +425,9 @@ h1.stylish-heading:after {
         <div class="sidebar">
             <h3>By Category</h3>
             <ul>
-               @foreach ($categories as $category)
-                <li><a href="{{ route ('shop.index', [ 'category' => $category->slug])}}">{{$category->name}}</a></li>
-               @endforeach
+               <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <li><a href="<?php echo e(route ('shop.index', [ 'category' => $category->slug])); ?>"><?php echo e($category->name); ?></a></li>
+               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
               
                 
@@ -436,30 +437,32 @@ h1.stylish-heading:after {
         </div> <!-- end sidebar -->
         <div>
             <div class="products-header">
-                <h1 class="stylish-heading">{{ $categoryName }}</h1>
+                <h1 class="stylish-heading"><?php echo e($categoryName); ?></h1>
                 <div>
                     <strong>Price: </strong>
-                    <a href="{{ route('shop.index', ['category'=> request()->category, 'sort' => 'low_high']) }}">Low to High</a> |
-                    <a href="{{ route('shop.index', ['category'=> request()->category, 'sort' => 'high_low']) }}">High to Low</a>
+                    <a href="<?php echo e(route('shop.index', ['category'=> request()->category, 'sort' => 'low_high'])); ?>">Low to High</a> |
+                    <a href="<?php echo e(route('shop.index', ['category'=> request()->category, 'sort' => 'high_low'])); ?>">High to Low</a>
 
                 </div>
             </div>
 
             <div class="products text-center">
-                @forelse ($products as $product)
+                <?php $__empty_1 = true; $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                     <div class="product">
-                <a href="{{ route('shop.show', $product->slug)}}">
-                <img src="{{ asset('images/products/'.$product->slug.'.jpg') }}" alt="product" style="width: 200px; height: 200px;">
+                <a href="<?php echo e(route('shop.show', $product->slug)); ?>">
+                <img src="<?php echo e(asset('images/products/'.$product->slug.'.jpg')); ?>" alt="product" style="width: 200px; height: 200px;">
             	</a>
-                <a href="{{ route('shop.show', $product->slug)}}">
-                <div class="product-name">{{ $product->name }}
+                <a href="<?php echo e(route('shop.show', $product->slug)); ?>">
+                <div class="product-name"><?php echo e($product->name); ?>
+
                 </div>
             	</a>
-                <div class="product-price">{{ $product->presentPrice() }}
+                <div class="product-price"><?php echo e($product->presentPrice()); ?>
+
                 </div></div>
-@empty
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
 <div style="text-align: left">No items found</div>
-@endforelse
+<?php endif; ?>
 
   
 
@@ -470,7 +473,8 @@ h1.stylish-heading:after {
            
         </div> <!-- end products -->
    <br>
-    {{ $products->appends(request()->input())->links() }}
+    <?php echo e($products->appends(request()->input())->links()); ?>
+
 </div>
 </div>
 
@@ -584,27 +588,27 @@ h1.stylish-heading:after {
 
 	<!-- Js files -->
 	<!-- JavaScript -->
-	<script src="{{ asset('js/jquery-2.2.3.min.js')}}"></script>
+	<script src="<?php echo e(asset('js/jquery-2.2.3.min.js')); ?>"></script>
 	<!-- Default-JavaScript-File -->
-	<script src="{{ asset('js/bootstrap.js')}}"></script>
+	<script src="<?php echo e(asset('js/bootstrap.js')); ?>"></script>
 	<!-- Necessary-JavaScript-File-For-Bootstrap -->
 
 	<!-- smooth scrolling -->
-	<script src="{{ asset('js/SmoothScroll.min.js')}}"></script>
+	<script src="<?php echo e(asset('js/SmoothScroll.min.js')); ?>"></script>
 	<!-- //smooth scrolling -->
 
 	<!-- move-top -->
-	<script src="{{ asset('js/move-top.js')}}"></script>
+	<script src="<?php echo e(asset('js/move-top.js')); ?>"></script>
 	<!-- easing -->
-	<script src="{{ asset('js/easing.js')}}"></script>
+	<script src="<?php echo e(asset('js/easing.js')); ?>"></script>
 	<!--  necessary snippets for few javascript files -->
-	<script src="{{ asset('js/coffee.js')}}"></script>
+	<script src="<?php echo e(asset('js/coffee.js')); ?>"></script>
 
 	<!-- //Js files -->
 	 <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
-    <script src="{{ asset('https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js')}}"></script>
-    <script src="{{ asset ('https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js')}}"></script>
-    <script src="{{ asset('js/algolia.js') }}"></script>
+    <script src="<?php echo e(asset('https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js')); ?>"></script>
+    <script src="<?php echo e(asset ('https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('js/algolia.js')); ?>"></script>
 
 </body>
 
