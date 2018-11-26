@@ -14,7 +14,13 @@ use Cartalyst\Stripe\Exception\CardErrorException;
      */
     public function index()
     {
-        return view('checkout');
+        
+       return view('checkout')->with([
+            'discount' => getNumbers()->get('discount'),
+            'newSubtotal' => getNumbers()->get('newSubtotal'),
+            'newTax' => getNumbers()->get('newTax'),
+            'newTotal' => getNumbers()->get('newTotal'),
+        ]);
     }
      /**
      * Store a newly created resource in storage.
@@ -24,12 +30,14 @@ use Cartalyst\Stripe\Exception\CardErrorException;
      */
     public function store(CheckoutRequest $request)
     {
+    
+
         $contents = Cart::content()->map(function ($item) {
             return $item->model->slug.', '.$item->qty;
         })->values()->toJson();
          try {
             $charge = Stripe::charges()->create([
-                'amount' => Cart::total() / 100,
+                'amount' =>  getNumbers()->get('newTotal') / 100,
                 'currency' => 'CAD',
                 'source' => $request->stripeToken,
                 'description' => 'Order',
@@ -38,14 +46,27 @@ use Cartalyst\Stripe\Exception\CardErrorException;
                     //change to Order ID after we start using DB
                     'contents' => $contents,
                     'quantity' => Cart::instance('default')->count(),
+                    'discount' => collect(session()->get('coupon'))->toJson(),
                 ],
             ]);
              // SUCCESSFUL
             Cart::instance('default')->destroy();
+            session()->forget('coupon');
             // return back()->with('success_message', 'Thank you! Your payment has been successfully accepted!');
             return redirect()->route('confirmation.index')->with('success_message', 'Thank you! Your payment has been successfully accepted!');
         } catch (CardErrorException $e) {
             return back()->withErrors('Error! ' . $e->getMessage());
         }
     }
+
+
+
+
+
+
+
+
+
+
+
 }

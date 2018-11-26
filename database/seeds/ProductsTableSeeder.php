@@ -19,6 +19,9 @@ class ProductsTableSeeder extends Seeder
             'price' => 170,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ])->categories()->attach(2);
+
+        
+
          Product::create([
             'name' => 'capuchino',
             'slug' => 'capuchino',
@@ -27,10 +30,9 @@ class ProductsTableSeeder extends Seeder
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ])->categories()->attach(2);
 
-
-         $product = new Product;
-         $product->categories()->attach(3);
-
+$product=Product::where('slug', 'capuchino')->first();
+            $product->categories()->attach(3);
+         
          Product::create([
             'name' => 'flat white',
             'slug' => 'flat white',
@@ -38,6 +40,9 @@ class ProductsTableSeeder extends Seeder
             'price' => 350,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ])->categories()->attach(2);
+         $product=Product::where('slug', 'flat white')->first();
+            $product->categories()->attach(3);
+         
          Product::create([
             'name' => 'latte macchiato',
             'slug' => 'latte macchiato',
@@ -45,6 +50,10 @@ class ProductsTableSeeder extends Seeder
             'price' => 360,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ])->categories()->attach(2);
+$product=Product::where('slug', 'latte macchiato')->first();
+            $product->categories()->attach(3);
+         
+
          Product::create([
             'name' => 'mocaccino',
             'slug' => 'mocaccino',
@@ -52,6 +61,10 @@ class ProductsTableSeeder extends Seeder
             'price' => 450,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ])->categories()->attach(2);
+         $product=Product::where('slug', 'mocaccino')->first();
+            $product->categories()->attach(3);
+         $product->categories()->attach(7);
+         
          Product::create([
             'name' => 'expresso',
             'slug' => 'expresso',
@@ -66,6 +79,9 @@ class ProductsTableSeeder extends Seeder
             'price' => 680,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ])->categories()->attach(1);
+          $product=Product::where('slug', 'ice coffee')->first();
+            $product->categories()->attach(3);
+        
 
         Product::create([
             'name' => 'frappe',
@@ -74,6 +90,9 @@ class ProductsTableSeeder extends Seeder
             'price' => 780,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ])->categories()->attach(1);
+         $product=Product::where('slug', 'frappe')->first();
+            $product->categories()->attach(3);
+        
 
         Product::create([
             'name' => 'irish',
@@ -82,6 +101,9 @@ class ProductsTableSeeder extends Seeder
             'price' => 1100,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ])->categories()->attach(2);
+         $product=Product::where('slug', 'irish')->first();
+            $product->categories()->attach(6);
+        
 
         Product::create([
             'name' => 'affogato',
@@ -90,6 +112,9 @@ class ProductsTableSeeder extends Seeder
             'price' => 1120,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ])->categories()->attach(1);
+         $product=Product::where('slug', 'affogato')->first();
+            $product->categories()->attach(7);
+        
 
         Product::create([
             'name' => 'arabica',
@@ -98,7 +123,9 @@ class ProductsTableSeeder extends Seeder
             'price' => 2000,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ])->categories()->attach(4);
-
+ $product=Product::where('slug', 'arabica')->first();
+            $product->categories()->attach(10);
+        
         Product::create([
             'name' => 'robusta',
             'slug' => 'robusta',
@@ -106,6 +133,9 @@ class ProductsTableSeeder extends Seeder
             'price' => 2000,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ])->categories()->attach(4);
+         $product=Product::where('slug', 'robusta')->first();
+            $product->categories()->attach(10);
+        
 
         Product::create([
             'name' => 'canned',
@@ -113,7 +143,10 @@ class ProductsTableSeeder extends Seeder
             'details' => 'Coffee, but canned. You decide whether hot or cold',
             'price' => 340,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-        ])->categories()->attach(1);
+        ])->categories()->attach(2);
+         $product=Product::where('slug', 'canned')->first();
+            $product->categories()->attach(4);
+        
 
         Product::create([
             'name' => 'capsule',
@@ -123,6 +156,7 @@ class ProductsTableSeeder extends Seeder
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ])->categories()->attach(4);
 
+
         Product::create([
             'name' => 'sachets',
             'slug' => 'sachets',
@@ -130,6 +164,9 @@ class ProductsTableSeeder extends Seeder
             'price' => 100,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ])->categories()->attach(4);
+         $product=Product::where('slug', 'sachets')->first();
+            $product->categories()->attach(11);
+        
 
         Product::create([
             'name' => 'instant',
@@ -155,6 +192,11 @@ Product::create([
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ])->categories()->attach(3);
+ $product=Product::where('slug', '3 milk')->first();
+            $product->categories()->attach(5);
+        $product->categories()->attach(12);
+        
+
 Product::create([
             'name' => 'alfajor',
             'slug' => 'alfajor',
@@ -162,6 +204,7 @@ Product::create([
             'price' => 1000,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ])->categories()->attach(5);
+
 Product::create([
             'name' => 'apple pie',
             'slug' => 'apple pie',
@@ -176,6 +219,10 @@ Product::create([
             'price' => 1150,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ])->categories()->attach(4);
+$product=Product::where('slug', 'bags')->first();
+            $product->categories()->attach(11);
+       
+
 Product::create([
             'name' => 'banana bread',
             'slug' => 'banana bread',
@@ -191,6 +238,9 @@ Product::create([
             'price' => 700,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ])->categories()->attach(5);
+$product=Product::where('slug', 'birthday cake cupcake')->first();
+            $product->categories()->attach(14);
+       
 Product::create([
             'name' => 'blueberry muffin',
             'slug' => 'blueberry muffin',
@@ -205,6 +255,9 @@ Product::create([
             'price' => 1300,
             'description' => '250gr. Made in brazil. Pure. No added ingredients nor sugar. From imported and local ingredients.',
         ])->categories()->attach(4);
+$product=Product::where('slug', 'brazil beans')->first();
+            $product->categories()->attach(10);
+       
 Product::create([
             'name' => 'brownie',
             'slug' => 'brownie',
@@ -282,6 +335,9 @@ Product::create([
             'price' => 2100,
             'description' => '250gr. Made in colombia. Pure. No added ingredients nor sugar. From imported and local ingredients.',
         ])->categories()->attach(4);
+$product=Product::where('slug', 'colombian beans')->first();
+            $product->categories()->attach(10);
+       
 Product::create([
             'name' => 'cookies',
             'slug' => 'cookies',
@@ -366,6 +422,9 @@ Product::create([
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ])->categories()->attach(12);
+$product=Product::where('slug', 'pumpkin cake')->first();
+            $product->categories()->attach(14);
+        
 
 Product::create([
             'name' => 'rainbow cupcake',
@@ -441,6 +500,9 @@ Product::create([
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ])->categories()->attach(11);
+$product=Product::where('slug', 'generic bags')->first();
+            $product->categories()->attach(4);
+        
 Product::create([
             'name' => 'ginger cookies',
             'slug' => 'ginger cookies',
@@ -455,6 +517,9 @@ Product::create([
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ])->categories()->attach(5);
+$product=Product::where('slug', 'milkshakes')->first();
+            $product->categories()->attach(3);
+        
 Product::create([
             'name' => 'pan dulce',
             'slug' => 'pan dulce',
@@ -521,6 +586,26 @@ Product::create([
             'price' => 1300,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ])->categories()->attach(4);
+Product::create([
+            'name' => 'filtros',
+            'slug' => 'filtros',
+            'details' => 'Filtros de marca. Simples.',
+            'price' => 1300,
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
+        ])->categories()->attach(9);
+$product=Product::where('slug', 'filtros')->first();
+            $product->categories()->attach(4);
+        
+Product::create([
+            'name' => 'filtros genericos',
+            'slug' => 'filtros genericos',
+            'details' => 'Filtros genericos baratos',
+            'price' => 800,
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
+        ])->categories()->attach(9);
+$product=Product::where('slug', 'filtros genericos')->first();
+            $product->categories()->attach(4);
+        
 
 
 

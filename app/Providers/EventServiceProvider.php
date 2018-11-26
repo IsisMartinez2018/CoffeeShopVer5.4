@@ -13,10 +13,16 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\Event' => [
-            'App\Listeners\EventListener',
+         'cart.added' => [
+            'App\Listeners\CartUpdatedListener',
         ],
-    ];
+        'cart.updated' => [
+            'App\Listeners\CartUpdatedListener',
+        ],
+        'cart.removed' => [
+            'App\Listeners\CartUpdatedListener',
+        ],
+     ];
 
     /**
      * Register any events for your application.
