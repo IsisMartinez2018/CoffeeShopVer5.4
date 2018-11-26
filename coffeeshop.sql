@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-11-2018 a las 21:53:46
+-- Tiempo de generación: 26-11-2018 a las 16:25:27
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -206,6 +206,30 @@ INSERT INTO `category_product` (`id`, `product_id`, `category_id`, `created_at`,
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `coupons`
+--
+
+CREATE TABLE `coupons` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` int(11) DEFAULT NULL,
+  `percent_off` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `coupons`
+--
+
+INSERT INTO `coupons` (`id`, `code`, `type`, `value`, `percent_off`, `created_at`, `updated_at`) VALUES
+(1, 'ABC123', 'fixed', 3000, NULL, NULL, NULL),
+(2, 'DEF456', 'percent', NULL, 50, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `migrations`
 --
 
@@ -223,7 +247,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2018_10_25_151819_create_orders_table', 1),
 (2, '2018_10_27_155538_create_admin_table', 2),
 (6, '2018_11_05_152017_create_profile_table', 3),
-(7, '2018_11_18_203150_create_category_product_table', 4);
+(7, '2018_11_18_203150_create_category_product_table', 4),
+(8, '2018_11_11_191742_create_category_table', 20),
+(9, '2018_11_11_233043_create_products_table', 19);
 
 -- --------------------------------------------------------
 
@@ -346,7 +372,7 @@ INSERT INTO `products` (`id`, `name`, `slug`, `details`, `price`, `description`,
 (666, 'strawberry donut', 'strawberry donut', 'Strawberry on everything', 1300, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', 0, '2018-11-19 04:04:04', '2018-11-19 04:04:04'),
 (667, 'strawberry syrup', 'strawberry syrup', 'Dont know if this is of your liking in your coffee, but recommend anyways', 1300, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', 0, '2018-11-19 04:04:04', '2018-11-19 04:04:04'),
 (668, 'turron', 'turron', 'Wish to have it all christmas long', 1300, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', 0, '2018-11-19 04:04:04', '2018-11-19 04:04:04'),
-(669, 'vainilla cake', 'vainila cake', 'When you dont fancy that much amount of sugar', 1300, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', 0, '2018-11-19 04:04:04', '2018-11-19 04:04:04'),
+(669, 'vainilla cake', 'vainilla cake', 'When you dont fancy that much amount of sugar', 1300, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', 0, '2018-11-19 04:04:04', '2018-11-19 04:04:04'),
 (670, 'vainilla cupcake', 'vainilla cupcake', 'Simple.', 1300, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', 0, '2018-11-19 04:04:04', '2018-11-19 04:04:04'),
 (671, 'flan', 'flan', 'Simple.', 1300, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', 0, '2018-11-19 04:04:04', '2018-11-19 04:04:04'),
 (672, 'generic bags', 'generic bags', 'Simple.', 1300, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!', 0, '2018-11-19 04:04:04', '2018-11-19 04:04:04'),
@@ -442,6 +468,12 @@ ALTER TABLE `category_product`
   ADD KEY `category_id` (`category_id`);
 
 --
+-- Indices de la tabla `coupons`
+--
+ALTER TABLE `coupons`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `migrations`
 --
 ALTER TABLE `migrations`
@@ -487,7 +519,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT de la tabla `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=196;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `category_product`
@@ -496,10 +528,16 @@ ALTER TABLE `category_product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=248;
 
 --
+-- AUTO_INCREMENT de la tabla `coupons`
+--
+ALTER TABLE `coupons`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `orders`

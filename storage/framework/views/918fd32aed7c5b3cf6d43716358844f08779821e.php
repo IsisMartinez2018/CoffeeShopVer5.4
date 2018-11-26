@@ -48,12 +48,16 @@
   font-weight: bold;
   margin-bottom: 16px;
 }
-
+.sidebar li.active {
+font-weight: 500;
+}
 .sidebar ul {
   line-height: 2;
   margin-bottom: 20px;
 }
-
+ul {
+  list-style: none;
+}
 .featured-section .products {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -283,12 +287,21 @@ h1.stylish-heading:after {
   bottom: -14px;
   top: auto;
 }
-.sidebar li.active {
-        font-weight: 500;
-    }
-  .products-header {
+.products-header {
     display: flex;
     justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+  color: #212121;
+}
+a:visited {
+  color: #212121;
+}
+
+a:hover {
+  color: #878787;
 }
 
 </style>
@@ -426,7 +439,7 @@ h1.stylish-heading:after {
             <h3>By Category</h3>
             <ul>
                <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <li><a href="<?php echo e(route ('shop.index', [ 'category' => $category->slug])); ?>"><?php echo e($category->name); ?></a></li>
+               <li class="<?php echo e(setActiveCategory($category->slug)); ?>"><a href="<?php echo e(route ('shop.index', [ 'category' => $category->slug])); ?>"><?php echo e($category->name); ?></a></li>
                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
               

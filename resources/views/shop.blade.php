@@ -48,12 +48,16 @@
   font-weight: bold;
   margin-bottom: 16px;
 }
-
+.sidebar li.active {
+font-weight: 500;
+}
 .sidebar ul {
   line-height: 2;
   margin-bottom: 20px;
 }
-
+ul {
+  list-style: none;
+}
 .featured-section .products {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -283,12 +287,21 @@ h1.stylish-heading:after {
   bottom: -14px;
   top: auto;
 }
-.sidebar li.active {
-        font-weight: 500;
-    }
-  .products-header {
+.products-header {
     display: flex;
     justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+  color: #212121;
+}
+a:visited {
+  color: #212121;
+}
+
+a:hover {
+  color: #878787;
 }
 
 </style>
@@ -425,7 +438,7 @@ h1.stylish-heading:after {
             <h3>By Category</h3>
             <ul>
                @foreach ($categories as $category)
-                <li><a href="{{ route ('shop.index', [ 'category' => $category->slug])}}">{{$category->name}}</a></li>
+               <li class="{{ setActiveCategory($category->slug) }}"><a href="{{ route ('shop.index', [ 'category' => $category->slug])}}">{{$category->name}}</a></li>
                @endforeach
 
               

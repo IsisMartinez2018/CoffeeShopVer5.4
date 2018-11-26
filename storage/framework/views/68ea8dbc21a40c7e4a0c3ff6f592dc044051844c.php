@@ -419,6 +419,9 @@ section {
              	<input type="hidden" name="price" value="<?php echo e($product->price); ?>">
              	<button type="submit" class="button button-plain">Add to cart</button>
               </form>
+
+             
+           </div>   
     </div> 
     <br><br>
     <!-- end product-section -->

@@ -289,6 +289,44 @@
   margin-right: 14px;
 }
 
+.have-code {
+  display: block;
+  margin: 14px 0;
+  text-align: right;
+}
+
+.have-code-container {
+  border: 1px solid #919191;
+  padding: 16px;
+  width: 75%;
+  margin-left: auto;
+}
+
+.have-code-container form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.have-code-container input[type="text"] {
+  width: 70%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.have-code-container input[type="submit"] {
+  background: white;
+  border: 1px solid #919191;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.have-code-container input[type="submit"]:hover {
+  background: #212121;
+}
 
 
 
@@ -438,7 +476,7 @@
 
 
 
-                <div class="cart-table-row">
+                  <div class="cart-table-row">
                     <div class="cart-table-row-left">
                         <a href="<?php echo e(route ('shop.show', $item->model->slug)); ?>"><img src="<?php echo e(asset('/images/products/'.$item->model->slug.'.jpg')); ?>" alt="item" class="cart-table-img"></a>
                         <div class="cart-item-details">
@@ -448,7 +486,7 @@
                     </div>
                     <div class="cart-table-row-right">
                         <div class="cart-table-actions">
-                            
+                              
                           <form action="<?php echo e(route('cart.destroy', $item->rowId)); ?>" method="POST">
                             <?php echo e(csrf_field()); ?>
 
@@ -482,38 +520,64 @@
                                 
                             </select>
                         </div>
-                        <div><?php echo e($item->model->presentPrice()); ?></div>
+                        <div><?php echo e(presentPrice($item->subtotal)); ?></div>
                     </div>
                 </div> <!-- end cart-table-row -->
 
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                  
              </div> <!-- end cart-table -->
-              <a href="#" class="have-code">Have a Code?</a>
+             
+             <?php if(! session()->has('coupon')): ?>
+
+<a href="#" class="have-code">Have a Code?</a>
              <div class="have-code-container">
-                <form action="#">
-                    <input type="text">
+                <form action="<?php echo e(route('coupon.store')); ?>" method="POST">
+                  <?php echo e(csrf_field()); ?>
+
+                    <input type="text" name="coupon_code" id="coupon_code">
                    <button type="submit" class="button button-plain">Apply</button>
                 </form>
             </div> <!-- end have-code-container -->
+<?php endif; ?>
 
              <div class="cart-totals">
                 <div class="cart-totals-left">
                     Shipping is free because we’re awesome like that. Also because that’s additional stuff I don’t feel like figuring out :).
                 </div>
-                 <div class="cart-totals-right">
+                <div class="cart-totals-right">
                     <div>
                         Subtotal <br>
-                        Tax (12%) <br>
+                        <?php if(session()->has('coupon')): ?>
+                            Code (<?php echo e(session()->get('coupon')['name']); ?>)
+                           : <form action="<?php echo e(route('coupon.destroy')); ?>" method="POST" style="display:inline">
+                                <?php echo e(csrf_field()); ?>
+
+                                <?php echo e(method_field('delete')); ?>
+
+                                <button type="submit" style="font-size:14px;">Remove</button>
+                            </form>
+                            <hr>
+                            New Subtotal <br>
+                        <?php endif; ?>
+                        Tax (13%)<br>
                         <span class="cart-totals-total">Total</span>
                     </div>
                     <div class="cart-totals-subtotal">
-                        <?php echo e(presentPrice(Cart::subtotal())); ?>  <br>
-                        <?php echo e(presentPrice(Cart::tax())); ?> <br>
-                        <span class="cart-totals-total"><?php echo e(presentPrice(Cart::total())); ?></span>
+                        <?php echo e(presentPrice(Cart::subtotal())); ?> <br>
+                        <?php if(session()->has('coupon')): ?>
+                            -<?php echo e(presentPrice($discount)); ?> 
+                            <hr>
+                            <?php echo e(presentPrice($newSubtotal)); ?> <br>
+                        <?php endif; ?>
+                        <?php echo e(presentPrice($newTax)); ?> <br>
+                        <span class="cart-totals-total"><?php echo e(presentPrice($newTotal)); ?></span>
                     </div>
                 </div>
             </div> <!-- end cart-totals -->
+
+
+
              <div class="cart-buttons">
                 <a href="<?php echo e(route ('shop.index')); ?>" class="button">Continue Shopping</a>
                 <a href="<?php echo e(route ('checkout.index')); ?>" class="button-primary">Proceed to Checkout</a>

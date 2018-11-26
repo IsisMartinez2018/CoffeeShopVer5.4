@@ -167,44 +167,6 @@ form button[type="submit"] {
   margin: auto;
   max-width: 1200px;
 }
-.have-code {
-  display: block;
-  margin: 14px 0;
-  text-align: right;
-}
-
-.have-code-container {
-  border: 1px solid #919191;
-  padding: 16px;
-  width: 50%;
-  margin-left: auto;
-}
-
-.have-code-container form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.have-code-container input[type="text"] {
-  width: 70%;
-  padding: 10px;
-  font-size: 16px;
-}
-
-.have-code-container input[type="submit"] {
-  background: white;
-  border: 1px solid #919191;
-  padding-top: 8px;
-  padding-bottom: 8px;
-}
-
-.have-code-container input[type="submit"]:hover {
-  background: #212121;
-}
 
 .cart-count {
   display: inline-block;
@@ -547,27 +509,34 @@ form button[type="submit"] {
                     @endforeach
 
 
-
                 </div> <!-- end checkout-table -->
 
                 <div class="checkout-totals">
                     <div class="checkout-totals-left">
                         Subtotal <br>
-                        {{-- Discount (10OFF - 10%) <br> --}}
-                        Tax <br>
+                        @if (session()->has('coupon'))
+                            Discount ({{ session()->get('coupon')['name'] }}) :
+                            <br>
+                            <hr>
+                            New Subtotal <br>
+                        @endif
+                        Tax (13%)<br>
                         <span class="checkout-totals-total">Total</span>
 
                     </div>
 
                     <div class="checkout-totals-right">
                         {{ presentPrice(Cart::subtotal()) }} <br>
-                        {{-- -$750.00 <br> --}}
-                        {{ presentPrice(Cart::tax()) }} <br>
-                        <span class="checkout-totals-total">{{ presentPrice(Cart::total()) }}</span>
+                        @if (session()->has('coupon'))
+                            -{{ presentPrice($discount) }} <br>
+                            <hr>
+                            {{ presentPrice($newSubtotal) }} <br>
+                        @endif
+                        {{ presentPrice($newTax) }} <br>
+                        <span class="checkout-totals-total">{{ presentPrice($newTotal) }}</span>
 
                     </div>
                 </div> <!-- end checkout-totals -->
-
             </div>
 
         </div> <!-- end checkout-section -->

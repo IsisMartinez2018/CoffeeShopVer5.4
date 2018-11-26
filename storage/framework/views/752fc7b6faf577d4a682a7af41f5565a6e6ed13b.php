@@ -245,7 +245,7 @@
        <p>A confirmation email was sent</p>
       <br><br><br>
        <div>
-           <a href="<?php echo e(url('/')); ?>" class="button">Home Page</a>
+           <a href="<?php echo e(url('/homevista')); ?>" class="button">Home Page</a>
       
 </div></div>
 
