@@ -398,11 +398,15 @@
                         <img src="{{ URL::asset("/images/cup.png") }}" style="top: 130px; left: 650px;height: 30px; width: 30px; border:none;"></a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{url('/profile')}}">Perfil</a>
-                            <a class="dropdown-item" href="{{ route('cart.index') }}">Cart<span class="cart-count">
+                            
+            <a class="dropdown-item" href="{{ route('cart.index') }}">Cart<span class="cart-count">
                               @if (Cart::instance('default')->count() > 0)
 
                               <span>{{ Cart::instance('default')->count()}}</span></span></a>
                             @endif
+          
+
+
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -630,7 +634,7 @@
              @else
              <h3>No tienes items guardados para despues</h3>
              @endif
-         </div>
+         </div></div>
      </div> <!-- end cart-section -->
  <div class="might-like-section">
         <div class="container">
